@@ -1,0 +1,244 @@
+import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=7d84e7ee"; const Fragment = __vite__cjsImport0_react_jsxDevRuntime["Fragment"]; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import __vite__cjsImport1_react from "/node_modules/.vite/deps/react.js?v=7d84e7ee"; const useState = __vite__cjsImport1_react["useState"];
+import { ArrowRight, Search, X } from "/node_modules/.vite/deps/lucide-react.js?v=7d84e7ee";
+import { browsePlaces, findLanguages, findPlaces, languages } from "/src/directory.ts";
+const modes = [
+  { key: "all", label: "All" },
+  { key: "places", label: "Districts / places" },
+  { key: "languages", label: "Languages" }
+];
+export default function LanguageDirectory() {
+  const [query, setQuery] = useState("");
+  const [mode, setMode] = useState("all");
+  const [visible, setVisible] = useState(3);
+  const placeResults = findPlaces(query, mode === "places");
+  const languageResults = findLanguages(query);
+  const showingLanguages = mode === "languages";
+  const results = showingLanguages ? languageResults : placeResults;
+  const count = Math.min(visible, results.length);
+  function changeQuery(value) {
+    setQuery(value);
+    setVisible(value.trim() ? 12 : 3);
+  }
+  function changeMode(nextMode) {
+    setMode(nextMode);
+    setVisible(nextMode === "all" && !query.trim() ? 3 : 12);
+  }
+  return /* @__PURE__ */ jsxDEV("div", { id: "language-directory", className: "directory", "aria-labelledby": "directory-title", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "directory-top", children: [
+      /* @__PURE__ */ jsxDEV("div", { children: [
+        /* @__PURE__ */ jsxDEV("span", { className: "eyebrow", children: "Explore the list" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+          lineNumber: 33,
+          columnNumber: 41
+        }, this),
+        /* @__PURE__ */ jsxDEV("h3", { id: "directory-title", children: [
+          "Explore languages ",
+          /* @__PURE__ */ jsxDEV("span", { children: "across Uganda" }, void 0, false, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+            lineNumber: 33,
+            columnNumber: 133
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+          lineNumber: 33,
+          columnNumber: 90
+        }, this),
+        /* @__PURE__ */ jsxDEV("p", { children: "Search Dema’s published district / place and language list." }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+          lineNumber: 33,
+          columnNumber: 164
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+        lineNumber: 33,
+        columnNumber: 36
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "directory-ribbon", "aria-hidden": "true" }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+        lineNumber: 33,
+        columnNumber: 236
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+      lineNumber: 33,
+      columnNumber: 5
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "directory-search", children: [
+      /* @__PURE__ */ jsxDEV(Search, { size: 23, "aria-hidden": "true" }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+        lineNumber: 34,
+        columnNumber: 39
+      }, this),
+      /* @__PURE__ */ jsxDEV("input", { type: "search", value: query, onChange: (event) => changeQuery(event.target.value), "aria-label": "Search a district, place, or language", placeholder: "Search a district or language" }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+        lineNumber: 34,
+        columnNumber: 78
+      }, this),
+      query && /* @__PURE__ */ jsxDEV("button", { type: "button", className: "directory-clear", "aria-label": "Clear search", onClick: () => changeQuery(""), children: /* @__PURE__ */ jsxDEV(X, { size: 20 }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+        lineNumber: 34,
+        columnNumber: 380
+      }, this) }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+        lineNumber: 34,
+        columnNumber: 272
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+      lineNumber: 34,
+      columnNumber: 5
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "directory-filters", role: "group", "aria-label": "Directory result type", children: modes.map((item) => /* @__PURE__ */ jsxDEV("button", { type: "button", "aria-pressed": mode === item.key, className: mode === item.key ? "active" : "", onClick: () => changeMode(item.key), children: item.label }, item.key, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+      lineNumber: 35,
+      columnNumber: 107
+    }, this)) }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+      lineNumber: 35,
+      columnNumber: 5
+    }, this),
+    /* @__PURE__ */ jsxDEV("p", { className: "directory-count", role: "status", "aria-live": "polite", children: [
+      "Showing ",
+      count,
+      " of ",
+      results.length,
+      " listed ",
+      showingLanguages ? "languages" : "districts / places"
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+      lineNumber: 36,
+      columnNumber: 5
+    }, this),
+    results.length ? /* @__PURE__ */ jsxDEV("div", { className: "directory-results", children: showingLanguages ? /* @__PURE__ */ jsxDEV(Fragment, { children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "directory-table-head", children: [
+        /* @__PURE__ */ jsxDEV("span", { children: "Language" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+          lineNumber: 37,
+          columnNumber: 118
+        }, this),
+        /* @__PURE__ */ jsxDEV("span", { children: "Districts / places" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+          lineNumber: 37,
+          columnNumber: 139
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+        lineNumber: 37,
+        columnNumber: 80
+      }, this),
+      languageResults.slice(0, visible).map((entry) => /* @__PURE__ */ jsxDEV("article", { className: "directory-row", children: [
+        /* @__PURE__ */ jsxDEV("h4", { children: entry.language }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+          lineNumber: 37,
+          columnNumber: 280
+        }, this),
+        /* @__PURE__ */ jsxDEV("p", { children: entry.places.map((place) => place.place).join(" · ") }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+          lineNumber: 37,
+          columnNumber: 305
+        }, this)
+      ] }, entry.language, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+        lineNumber: 37,
+        columnNumber: 224
+      }, this))
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+      lineNumber: 37,
+      columnNumber: 78
+    }, this) : /* @__PURE__ */ jsxDEV(Fragment, { children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "directory-table-head", children: [
+        /* @__PURE__ */ jsxDEV("span", { children: "District / place" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+          lineNumber: 37,
+          columnNumber: 422
+        }, this),
+        /* @__PURE__ */ jsxDEV("span", { children: "Languages" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+          lineNumber: 37,
+          columnNumber: 451
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+        lineNumber: 37,
+        columnNumber: 384
+      }, this),
+      placeResults.slice(0, visible).map((entry) => /* @__PURE__ */ jsxDEV("article", { className: "directory-row", children: [
+        /* @__PURE__ */ jsxDEV("h4", { children: entry.place }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+          lineNumber: 37,
+          columnNumber: 578
+        }, this),
+        /* @__PURE__ */ jsxDEV("p", { children: entry.languages.join(" · ") }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+          lineNumber: 37,
+          columnNumber: 600
+        }, this)
+      ] }, entry.number, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+        lineNumber: 37,
+        columnNumber: 524
+      }, this))
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+      lineNumber: 37,
+      columnNumber: 382
+    }, this) }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+      lineNumber: 37,
+      columnNumber: 23
+    }, this) : /* @__PURE__ */ jsxDEV("div", { className: "directory-empty", children: [
+      /* @__PURE__ */ jsxDEV("p", { children: "No matches in Dema’s published list." }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+        lineNumber: 37,
+        columnNumber: 694
+      }, this),
+      /* @__PURE__ */ jsxDEV("button", { type: "button", onClick: () => changeQuery(""), children: [
+        "Clear search ",
+        /* @__PURE__ */ jsxDEV(ArrowRight, { size: 16 }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+          lineNumber: 37,
+          columnNumber: 804
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+        lineNumber: 37,
+        columnNumber: 737
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+      lineNumber: 37,
+      columnNumber: 661
+    }, this),
+    count < results.length && /* @__PURE__ */ jsxDEV("button", { type: "button", className: "directory-more", onClick: () => setVisible((value) => Math.min(value + 12, results.length)), children: [
+      "Show more ",
+      /* @__PURE__ */ jsxDEV(ArrowRight, { size: 18 }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+        lineNumber: 38,
+        columnNumber: 165
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+      lineNumber: 38,
+      columnNumber: 32
+    }, this),
+    /* @__PURE__ */ jsxDEV("p", { className: "directory-note", children: [
+      "Based on Dema’s published list of ",
+      browsePlaces.length,
+      " districts / places and ",
+      languages.length,
+      " language labels. Contact Dema to confirm local requirements."
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+      lineNumber: 39,
+      columnNumber: 5
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/LanguageDirectory.tsx",
+    lineNumber: 32,
+    columnNumber: 10
+  }, this);
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkxhbmd1YWdlRGlyZWN0b3J5LnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyB1c2VTdGF0ZSB9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHsgQXJyb3dSaWdodCwgU2VhcmNoLCBYIH0gZnJvbSAnbHVjaWRlLXJlYWN0J1xuaW1wb3J0IHsgYnJvd3NlUGxhY2VzLCBmaW5kTGFuZ3VhZ2VzLCBmaW5kUGxhY2VzLCBsYW5ndWFnZXMgfSBmcm9tICcuL2RpcmVjdG9yeSdcblxudHlwZSBNb2RlID0gJ2FsbCcgfCAncGxhY2VzJyB8ICdsYW5ndWFnZXMnXG5jb25zdCBtb2RlczogeyBrZXk6IE1vZGU7IGxhYmVsOiBzdHJpbmcgfVtdID0gW1xuICB7IGtleTogJ2FsbCcsIGxhYmVsOiAnQWxsJyB9LFxuICB7IGtleTogJ3BsYWNlcycsIGxhYmVsOiAnRGlzdHJpY3RzIC8gcGxhY2VzJyB9LFxuICB7IGtleTogJ2xhbmd1YWdlcycsIGxhYmVsOiAnTGFuZ3VhZ2VzJyB9LFxuXVxuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBMYW5ndWFnZURpcmVjdG9yeSgpIHtcbiAgY29uc3QgW3F1ZXJ5LCBzZXRRdWVyeV0gPSB1c2VTdGF0ZSgnJylcbiAgY29uc3QgW21vZGUsIHNldE1vZGVdID0gdXNlU3RhdGU8TW9kZT4oJ2FsbCcpXG4gIGNvbnN0IFt2aXNpYmxlLCBzZXRWaXNpYmxlXSA9IHVzZVN0YXRlKDMpXG4gIGNvbnN0IHBsYWNlUmVzdWx0cyA9IGZpbmRQbGFjZXMocXVlcnksIG1vZGUgPT09ICdwbGFjZXMnKVxuICBjb25zdCBsYW5ndWFnZVJlc3VsdHMgPSBmaW5kTGFuZ3VhZ2VzKHF1ZXJ5KVxuICBjb25zdCBzaG93aW5nTGFuZ3VhZ2VzID0gbW9kZSA9PT0gJ2xhbmd1YWdlcydcbiAgY29uc3QgcmVzdWx0cyA9IHNob3dpbmdMYW5ndWFnZXMgPyBsYW5ndWFnZVJlc3VsdHMgOiBwbGFjZVJlc3VsdHNcbiAgY29uc3QgY291bnQgPSBNYXRoLm1pbih2aXNpYmxlLCByZXN1bHRzLmxlbmd0aClcblxuICBmdW5jdGlvbiBjaGFuZ2VRdWVyeSh2YWx1ZTogc3RyaW5nKSB7XG4gICAgc2V0UXVlcnkodmFsdWUpXG4gICAgc2V0VmlzaWJsZSh2YWx1ZS50cmltKCkgPyAxMiA6IDMpXG4gIH1cblxuICBmdW5jdGlvbiBjaGFuZ2VNb2RlKG5leHRNb2RlOiBNb2RlKSB7XG4gICAgc2V0TW9kZShuZXh0TW9kZSlcbiAgICBzZXRWaXNpYmxlKG5leHRNb2RlID09PSAnYWxsJyAmJiAhcXVlcnkudHJpbSgpID8gMyA6IDEyKVxuICB9XG5cbiAgcmV0dXJuIDxkaXYgaWQ9XCJsYW5ndWFnZS1kaXJlY3RvcnlcIiBjbGFzc05hbWU9XCJkaXJlY3RvcnlcIiBhcmlhLWxhYmVsbGVkYnk9XCJkaXJlY3RvcnktdGl0bGVcIj5cbiAgICA8ZGl2IGNsYXNzTmFtZT1cImRpcmVjdG9yeS10b3BcIj48ZGl2PjxzcGFuIGNsYXNzTmFtZT1cImV5ZWJyb3dcIj5FeHBsb3JlIHRoZSBsaXN0PC9zcGFuPjxoMyBpZD1cImRpcmVjdG9yeS10aXRsZVwiPkV4cGxvcmUgbGFuZ3VhZ2VzIDxzcGFuPmFjcm9zcyBVZ2FuZGE8L3NwYW4+PC9oMz48cD5TZWFyY2ggRGVtYeKAmXMgcHVibGlzaGVkIGRpc3RyaWN0IC8gcGxhY2UgYW5kIGxhbmd1YWdlIGxpc3QuPC9wPjwvZGl2PjxkaXYgY2xhc3NOYW1lPVwiZGlyZWN0b3J5LXJpYmJvblwiIGFyaWEtaGlkZGVuPVwidHJ1ZVwiIC8+PC9kaXY+XG4gICAgPGRpdiBjbGFzc05hbWU9XCJkaXJlY3Rvcnktc2VhcmNoXCI+PFNlYXJjaCBzaXplPXsyM30gYXJpYS1oaWRkZW49XCJ0cnVlXCIgLz48aW5wdXQgdHlwZT1cInNlYXJjaFwiIHZhbHVlPXtxdWVyeX0gb25DaGFuZ2U9e2V2ZW50ID0+IGNoYW5nZVF1ZXJ5KGV2ZW50LnRhcmdldC52YWx1ZSl9IGFyaWEtbGFiZWw9XCJTZWFyY2ggYSBkaXN0cmljdCwgcGxhY2UsIG9yIGxhbmd1YWdlXCIgcGxhY2Vob2xkZXI9XCJTZWFyY2ggYSBkaXN0cmljdCBvciBsYW5ndWFnZVwiIC8+e3F1ZXJ5ICYmIDxidXR0b24gdHlwZT1cImJ1dHRvblwiIGNsYXNzTmFtZT1cImRpcmVjdG9yeS1jbGVhclwiIGFyaWEtbGFiZWw9XCJDbGVhciBzZWFyY2hcIiBvbkNsaWNrPXsoKSA9PiBjaGFuZ2VRdWVyeSgnJyl9PjxYIHNpemU9ezIwfSAvPjwvYnV0dG9uPn08L2Rpdj5cbiAgICA8ZGl2IGNsYXNzTmFtZT1cImRpcmVjdG9yeS1maWx0ZXJzXCIgcm9sZT1cImdyb3VwXCIgYXJpYS1sYWJlbD1cIkRpcmVjdG9yeSByZXN1bHQgdHlwZVwiPnttb2Rlcy5tYXAoaXRlbSA9PiA8YnV0dG9uIGtleT17aXRlbS5rZXl9IHR5cGU9XCJidXR0b25cIiBhcmlhLXByZXNzZWQ9e21vZGUgPT09IGl0ZW0ua2V5fSBjbGFzc05hbWU9e21vZGUgPT09IGl0ZW0ua2V5ID8gJ2FjdGl2ZScgOiAnJ30gb25DbGljaz17KCkgPT4gY2hhbmdlTW9kZShpdGVtLmtleSl9PntpdGVtLmxhYmVsfTwvYnV0dG9uPil9PC9kaXY+XG4gICAgPHAgY2xhc3NOYW1lPVwiZGlyZWN0b3J5LWNvdW50XCIgcm9sZT1cInN0YXR1c1wiIGFyaWEtbGl2ZT1cInBvbGl0ZVwiPlNob3dpbmcge2NvdW50fSBvZiB7cmVzdWx0cy5sZW5ndGh9IGxpc3RlZCB7c2hvd2luZ0xhbmd1YWdlcyA/ICdsYW5ndWFnZXMnIDogJ2Rpc3RyaWN0cyAvIHBsYWNlcyd9PC9wPlxuICAgIHtyZXN1bHRzLmxlbmd0aCA/IDxkaXYgY2xhc3NOYW1lPVwiZGlyZWN0b3J5LXJlc3VsdHNcIj57c2hvd2luZ0xhbmd1YWdlcyA/IDw+PGRpdiBjbGFzc05hbWU9XCJkaXJlY3RvcnktdGFibGUtaGVhZFwiPjxzcGFuPkxhbmd1YWdlPC9zcGFuPjxzcGFuPkRpc3RyaWN0cyAvIHBsYWNlczwvc3Bhbj48L2Rpdj57bGFuZ3VhZ2VSZXN1bHRzLnNsaWNlKDAsIHZpc2libGUpLm1hcChlbnRyeSA9PiA8YXJ0aWNsZSBjbGFzc05hbWU9XCJkaXJlY3Rvcnktcm93XCIga2V5PXtlbnRyeS5sYW5ndWFnZX0+PGg0PntlbnRyeS5sYW5ndWFnZX08L2g0PjxwPntlbnRyeS5wbGFjZXMubWFwKHBsYWNlID0+IHBsYWNlLnBsYWNlKS5qb2luKCcgwrcgJyl9PC9wPjwvYXJ0aWNsZT4pfTwvPiA6IDw+PGRpdiBjbGFzc05hbWU9XCJkaXJlY3RvcnktdGFibGUtaGVhZFwiPjxzcGFuPkRpc3RyaWN0IC8gcGxhY2U8L3NwYW4+PHNwYW4+TGFuZ3VhZ2VzPC9zcGFuPjwvZGl2PntwbGFjZVJlc3VsdHMuc2xpY2UoMCwgdmlzaWJsZSkubWFwKGVudHJ5ID0+IDxhcnRpY2xlIGNsYXNzTmFtZT1cImRpcmVjdG9yeS1yb3dcIiBrZXk9e2VudHJ5Lm51bWJlcn0+PGg0PntlbnRyeS5wbGFjZX08L2g0PjxwPntlbnRyeS5sYW5ndWFnZXMuam9pbignIMK3ICcpfTwvcD48L2FydGljbGU+KX08Lz59PC9kaXY+IDogPGRpdiBjbGFzc05hbWU9XCJkaXJlY3RvcnktZW1wdHlcIj48cD5ObyBtYXRjaGVzIGluIERlbWHigJlzIHB1Ymxpc2hlZCBsaXN0LjwvcD48YnV0dG9uIHR5cGU9XCJidXR0b25cIiBvbkNsaWNrPXsoKSA9PiBjaGFuZ2VRdWVyeSgnJyl9PkNsZWFyIHNlYXJjaCA8QXJyb3dSaWdodCBzaXplPXsxNn0gLz48L2J1dHRvbj48L2Rpdj59XG4gICAge2NvdW50IDwgcmVzdWx0cy5sZW5ndGggJiYgPGJ1dHRvbiB0eXBlPVwiYnV0dG9uXCIgY2xhc3NOYW1lPVwiZGlyZWN0b3J5LW1vcmVcIiBvbkNsaWNrPXsoKSA9PiBzZXRWaXNpYmxlKHZhbHVlID0+IE1hdGgubWluKHZhbHVlICsgMTIsIHJlc3VsdHMubGVuZ3RoKSl9PlNob3cgbW9yZSA8QXJyb3dSaWdodCBzaXplPXsxOH0gLz48L2J1dHRvbj59XG4gICAgPHAgY2xhc3NOYW1lPVwiZGlyZWN0b3J5LW5vdGVcIj5CYXNlZCBvbiBEZW1h4oCZcyBwdWJsaXNoZWQgbGlzdCBvZiB7YnJvd3NlUGxhY2VzLmxlbmd0aH0gZGlzdHJpY3RzIC8gcGxhY2VzIGFuZCB7bGFuZ3VhZ2VzLmxlbmd0aH0gbGFuZ3VhZ2UgbGFiZWxzLiBDb250YWN0IERlbWEgdG8gY29uZmlybSBsb2NhbCByZXF1aXJlbWVudHMuPC9wPlxuICA8L2Rpdj5cbn1cbiJdLCJtYXBwaW5ncyI6IkFBZ0N3QyxTQUlxQyxVQUpyQztBQWhDeEMsU0FBUyxnQkFBZ0I7QUFDekIsU0FBUyxZQUFZLFFBQVEsU0FBUztBQUN0QyxTQUFTLGNBQWMsZUFBZSxZQUFZLGlCQUFpQjtBQUduRSxNQUFNLFFBQXdDO0FBQUEsRUFDNUMsRUFBRSxLQUFLLE9BQU8sT0FBTyxNQUFNO0FBQUEsRUFDM0IsRUFBRSxLQUFLLFVBQVUsT0FBTyxxQkFBcUI7QUFBQSxFQUM3QyxFQUFFLEtBQUssYUFBYSxPQUFPLFlBQVk7QUFDekM7QUFFQSx3QkFBd0Isb0JBQW9CO0FBQzFDLFFBQU0sQ0FBQyxPQUFPLFFBQVEsSUFBSSxTQUFTLEVBQUU7QUFDckMsUUFBTSxDQUFDLE1BQU0sT0FBTyxJQUFJLFNBQWUsS0FBSztBQUM1QyxRQUFNLENBQUMsU0FBUyxVQUFVLElBQUksU0FBUyxDQUFDO0FBQ3hDLFFBQU0sZUFBZSxXQUFXLE9BQU8sU0FBUyxRQUFRO0FBQ3hELFFBQU0sa0JBQWtCLGNBQWMsS0FBSztBQUMzQyxRQUFNLG1CQUFtQixTQUFTO0FBQ2xDLFFBQU0sVUFBVSxtQkFBbUIsa0JBQWtCO0FBQ3JELFFBQU0sUUFBUSxLQUFLLElBQUksU0FBUyxRQUFRLE1BQU07QUFFOUMsV0FBUyxZQUFZLE9BQWU7QUFDbEMsYUFBUyxLQUFLO0FBQ2QsZUFBVyxNQUFNLEtBQUssSUFBSSxLQUFLLENBQUM7QUFBQSxFQUNsQztBQUVBLFdBQVMsV0FBVyxVQUFnQjtBQUNsQyxZQUFRLFFBQVE7QUFDaEIsZUFBVyxhQUFhLFNBQVMsQ0FBQyxNQUFNLEtBQUssSUFBSSxJQUFJLEVBQUU7QUFBQSxFQUN6RDtBQUVB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

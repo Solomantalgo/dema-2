@@ -1,0 +1,760 @@
+{
+  "source": "https://demalanguages.com/",
+  "sourceSection": "Districts And Languages Spoken In Uganda",
+  "capturedOn": "2026-11-17",
+  "scope": "Transcription of the 93 numbered district/place entries published on Dema's homepage; this is not a verified current national district register or proof of service availability.",
+  "entries": [
+    {
+      "number": 1,
+      "place": "Abim",
+      "languages": [
+        "Lango",
+        "Thur"
+      ]
+    },
+    {
+      "number": 2,
+      "place": "Adjumani",
+      "languages": [
+        "Kuku",
+        "Ma’di"
+      ]
+    },
+    {
+      "number": 3,
+      "place": "Alebtong",
+      "languages": [
+        "Lango"
+      ]
+    },
+    {
+      "number": 4,
+      "place": "Amolatar",
+      "languages": [
+        "Lango",
+        "Ruruuli-Runyala",
+        "Kumam"
+      ]
+    },
+    {
+      "number": 5,
+      "place": "Amudat",
+      "languages": [
+        "Kupsapiny",
+        "Ng’akarimojong",
+        "Pökoot",
+        "Soo"
+      ]
+    },
+    {
+      "number": 6,
+      "place": "Amuria",
+      "languages": [
+        "Ateso",
+        "Kumam"
+      ]
+    },
+    {
+      "number": 7,
+      "place": "Amuru",
+      "languages": [
+        "Acholi",
+        "Ma’di"
+      ]
+    },
+    {
+      "number": 8,
+      "place": "Apac",
+      "languages": [
+        "Lango"
+      ]
+    },
+    {
+      "number": 9,
+      "place": "Arua",
+      "languages": [
+        "Alur",
+        "Kebu",
+        "Lugbara",
+        "Southern Ma’di",
+        "Nubi"
+      ]
+    },
+    {
+      "number": 10,
+      "place": "Bombo",
+      "languages": [
+        "Nubi"
+      ]
+    },
+    {
+      "number": 11,
+      "place": "Budaka",
+      "languages": [
+        "Lugwere",
+        "Lumasaaba"
+      ]
+    },
+    {
+      "number": 12,
+      "place": "Buganda",
+      "languages": [
+        "Luganda"
+      ]
+    },
+    {
+      "number": 13,
+      "place": "Bugiri",
+      "languages": [
+        "Jopadhola",
+        "Lukenye",
+        "Lusaamya-Lugwe",
+        "Lusoga"
+      ]
+    },
+    {
+      "number": 14,
+      "place": "Bukedea",
+      "languages": [
+        "Ateso"
+      ]
+    },
+    {
+      "number": 15,
+      "place": "Bukwa",
+      "languages": [
+        "Kupsapiny"
+      ]
+    },
+    {
+      "number": 16,
+      "place": "Bulambuli",
+      "languages": [
+        "Lumasaaba"
+      ]
+    },
+    {
+      "number": 17,
+      "place": "Buliisa",
+      "languages": [
+        "Rugungu",
+        "Runyoro"
+      ]
+    },
+    {
+      "number": 18,
+      "place": "Bundibugyo",
+      "languages": [
+        "Amba",
+        "Lhukonzo",
+        "Talinga-Bwisi",
+        "Rutooro"
+      ]
+    },
+    {
+      "number": 19,
+      "place": "Bushenyi",
+      "languages": [
+        "Runyankore"
+      ]
+    },
+    {
+      "number": 20,
+      "place": "Busia",
+      "languages": [
+        "Jopadhola",
+        "Lukenye",
+        "Lusaamya-Lugwe"
+      ]
+    },
+    {
+      "number": 21,
+      "place": "Butaleja",
+      "languages": [
+        "Lugwere",
+        "Jopadhola",
+        "Lunyole"
+      ]
+    },
+    {
+      "number": 22,
+      "place": "Butebo",
+      "languages": [
+        "Ateso",
+        "Lugwere"
+      ]
+    },
+    {
+      "number": 23,
+      "place": "Buyende",
+      "languages": [
+        "Lukenye",
+        "Kumam",
+        "Lusoga"
+      ]
+    },
+    {
+      "number": 24,
+      "place": "Dokolo",
+      "languages": [
+        "Kumam",
+        "Lango"
+      ]
+    },
+    {
+      "number": 25,
+      "place": "Gulu",
+      "languages": [
+        "Acholi"
+      ]
+    },
+    {
+      "number": 26,
+      "place": "Hoima",
+      "languages": [
+        "Rugungu",
+        "Ndrulo",
+        "Runyoro"
+      ]
+    },
+    {
+      "number": 27,
+      "place": "Ibanda",
+      "languages": [
+        "Runyankore"
+      ]
+    },
+    {
+      "number": 28,
+      "place": "Iganga",
+      "languages": [
+        "Lusoga"
+      ]
+    },
+    {
+      "number": 29,
+      "place": "Isingiro",
+      "languages": [
+        "Runyankore"
+      ]
+    },
+    {
+      "number": 30,
+      "place": "Jinja",
+      "languages": [
+        "Lusoga"
+      ]
+    },
+    {
+      "number": 31,
+      "place": "Kaabong",
+      "languages": [
+        "Ik",
+        "Ng’akarimojong",
+        "Nyang’i"
+      ]
+    },
+    {
+      "number": 32,
+      "place": "Kabale",
+      "languages": [
+        "Rukiga",
+        "Rufumbira",
+        "Runyankore"
+      ]
+    },
+    {
+      "number": 33,
+      "place": "Kabarole",
+      "languages": [
+        "Lhukonzo",
+        "Rutooro"
+      ]
+    },
+    {
+      "number": 34,
+      "place": "Kaberamaido",
+      "languages": [
+        "Ateso",
+        "Lukenye",
+        "Kumam"
+      ]
+    },
+    {
+      "number": 35,
+      "place": "Kaliro",
+      "languages": [
+        "Lugwere",
+        "Lukenye"
+      ]
+    },
+    {
+      "number": 36,
+      "place": "Kamuli",
+      "languages": [
+        "Lukenye",
+        "Kumam",
+        "Lusoga"
+      ]
+    },
+    {
+      "number": 37,
+      "place": "Kamwenge",
+      "languages": [
+        "Runyankore",
+        "Rutooro"
+      ]
+    },
+    {
+      "number": 38,
+      "place": "Kanungu",
+      "languages": [
+        "Rukiga"
+      ]
+    },
+    {
+      "number": 39,
+      "place": "Kapchorwa",
+      "languages": [
+        "Kupsapiny"
+      ]
+    },
+    {
+      "number": 40,
+      "place": "Kasese",
+      "languages": [
+        "Lhukonzo",
+        "Runyankore",
+        "Rutooro"
+      ]
+    },
+    {
+      "number": 41,
+      "place": "Katakwi",
+      "languages": [
+        "Ateso"
+      ]
+    },
+    {
+      "number": 42,
+      "place": "Kayunga",
+      "languages": [
+        "Lukenye",
+        "Kuku",
+        "Ruruuli-Runyala"
+      ]
+    },
+    {
+      "number": 43,
+      "place": "Kibaale",
+      "languages": [
+        "Rukiga",
+        "Runyoro",
+        "Rutooro"
+      ]
+    },
+    {
+      "number": 44,
+      "place": "Kiboga",
+      "languages": [
+        "Runyoro"
+      ]
+    },
+    {
+      "number": 45,
+      "place": "Kibuku",
+      "languages": [
+        "Lugwere",
+        "Lukenye"
+      ]
+    },
+    {
+      "number": 46,
+      "place": "Kiruhura",
+      "languages": [
+        "Runyankore"
+      ]
+    },
+    {
+      "number": 47,
+      "place": "Kiryandongo",
+      "languages": [
+        "Runyoro",
+        "Ruruuli-Runyala"
+      ]
+    },
+    {
+      "number": 48,
+      "place": "Kisoro",
+      "languages": [
+        "Rufumbira"
+      ]
+    },
+    {
+      "number": 49,
+      "place": "Kitgum",
+      "languages": [
+        "Acholi"
+      ]
+    },
+    {
+      "number": 50,
+      "place": "Koboko",
+      "languages": [
+        "Kakwa",
+        "Kaliko",
+        "Lugbara",
+        "Nubi"
+      ]
+    },
+    {
+      "number": 51,
+      "place": "Kole",
+      "languages": [
+        "Lango"
+      ]
+    },
+    {
+      "number": 52,
+      "place": "Kotido",
+      "languages": [
+        "Ng’akarimojong"
+      ]
+    },
+    {
+      "number": 53,
+      "place": "Kumi",
+      "languages": [
+        "Ateso",
+        "Nubi"
+      ]
+    },
+    {
+      "number": 54,
+      "place": "Kween",
+      "languages": [
+        "Kupsapiny"
+      ]
+    },
+    {
+      "number": 55,
+      "place": "Kyankwanzi",
+      "languages": [
+        "Runyoro"
+      ]
+    },
+    {
+      "number": 56,
+      "place": "Kyegegwa",
+      "languages": [
+        "Runyoro",
+        "Rutooro"
+      ]
+    },
+    {
+      "number": 57,
+      "place": "Kyenjojo",
+      "languages": [
+        "Runyoro",
+        "Rutooro"
+      ]
+    },
+    {
+      "number": 58,
+      "place": "Lamwo",
+      "languages": [
+        "Acholi"
+      ]
+    },
+    {
+      "number": 59,
+      "place": "Lira",
+      "languages": [
+        "Kumam",
+        "Lango"
+      ]
+    },
+    {
+      "number": 60,
+      "place": "Luuka",
+      "languages": [
+        "Lusoga"
+      ]
+    },
+    {
+      "number": 61,
+      "place": "Luwero",
+      "languages": [
+        "Nubi",
+        "Ruruuli-Runyala"
+      ]
+    },
+    {
+      "number": 62,
+      "place": "Manafwa",
+      "languages": [
+        "Lubukusu",
+        "Lumasaaba"
+      ]
+    },
+    {
+      "number": 63,
+      "place": "Masindi",
+      "languages": [
+        "Ndrulo",
+        "Runyoro",
+        "Ruruuli-Runyala"
+      ]
+    },
+    {
+      "number": 64,
+      "place": "Mayuge",
+      "languages": [
+        "Lukenye",
+        "Lusoga"
+      ]
+    },
+    {
+      "number": 65,
+      "place": "Mbale",
+      "languages": [
+        "Lugwere",
+        "Lumasaaba",
+        "Lunyole"
+      ]
+    },
+    {
+      "number": 66,
+      "place": "Mbarara",
+      "languages": [
+        "Runyankore"
+      ]
+    },
+    {
+      "number": 67,
+      "place": "Moroto",
+      "languages": [
+        "Ng’akarimojong",
+        "Soo"
+      ]
+    },
+    {
+      "number": 68,
+      "place": "Moyo",
+      "languages": [
+        "Kuku",
+        "Ma’di"
+      ]
+    },
+    {
+      "number": 69,
+      "place": "Nakapiripirit",
+      "languages": [
+        "Kupsapiny",
+        "Ng’akarimojong",
+        "Pökoot [Pokot]",
+        "Soo"
+      ]
+    },
+    {
+      "number": 70,
+      "place": "Nakasongola",
+      "languages": [
+        "Ruruuli-Runyala"
+      ]
+    },
+    {
+      "number": 71,
+      "place": "Namayingo",
+      "languages": [
+        "Jopadhola",
+        "Lukenye",
+        "Lusaamya-Lugwe",
+        "Lusoga"
+      ]
+    },
+    {
+      "number": 72,
+      "place": "Namisindwa",
+      "languages": [
+        "Lubukusu"
+      ]
+    },
+    {
+      "number": 73,
+      "place": "Namutumba",
+      "languages": [
+        "Lusoga"
+      ]
+    },
+    {
+      "number": 74,
+      "place": "Napak",
+      "languages": [
+        "Soo",
+        "Ng’akarimojong"
+      ]
+    },
+    {
+      "number": 75,
+      "place": "Nebbi",
+      "languages": [
+        "Alur",
+        "Southern Ma’di"
+      ]
+    },
+    {
+      "number": 76,
+      "place": "Ngora",
+      "languages": [
+        "Ateso",
+        "Nubi"
+      ]
+    },
+    {
+      "number": 77,
+      "place": "Ntoroko",
+      "languages": [
+        "Amba",
+        "Lhukonzo",
+        "Rutooro"
+      ]
+    },
+    {
+      "number": 78,
+      "place": "Ntungamo",
+      "languages": [
+        "Rukiga",
+        "Rufumbira",
+        "Runyankore"
+      ]
+    },
+    {
+      "number": 79,
+      "place": "Nwoya",
+      "languages": [
+        "Acholi",
+        "Ma’di"
+      ]
+    },
+    {
+      "number": 80,
+      "place": "Nyadri",
+      "languages": [
+        "Alur",
+        "Lugbara",
+        "Southern Ma’di"
+      ]
+    },
+    {
+      "number": 81,
+      "place": "Obongi",
+      "languages": [
+        "Kuku"
+      ]
+    },
+    {
+      "number": 82,
+      "place": "Otuke",
+      "languages": [
+        "Kumam",
+        "Lango"
+      ]
+    },
+    {
+      "number": 83,
+      "place": "Oyam",
+      "languages": [
+        "Acholi",
+        "Lango"
+      ]
+    },
+    {
+      "number": 84,
+      "place": "Pader",
+      "languages": [
+        "Acholi"
+      ]
+    },
+    {
+      "number": 85,
+      "place": "Pallisa",
+      "languages": [
+        "Ateso",
+        "Lugwere",
+        "Lukenye"
+      ]
+    },
+    {
+      "number": 86,
+      "place": "Rubirizi",
+      "languages": [
+        "Runyankore"
+      ]
+    },
+    {
+      "number": 87,
+      "place": "Rukungiri",
+      "languages": [
+        "Rukiga"
+      ]
+    },
+    {
+      "number": 88,
+      "place": "Serere",
+      "languages": [
+        "Ateso",
+        "Lukenye",
+        "Kumam"
+      ]
+    },
+    {
+      "number": 89,
+      "place": "Sironko",
+      "languages": [
+        "Lugwere",
+        "Lumasaaba"
+      ]
+    },
+    {
+      "number": 90,
+      "place": "Soroti",
+      "languages": [
+        "Ateso"
+      ]
+    },
+    {
+      "number": 91,
+      "place": "Tororo",
+      "languages": [
+        "Ateso",
+        "Jopadhola",
+        "Lunyole"
+      ]
+    },
+    {
+      "number": 92,
+      "place": "Yumbe",
+      "languages": [
+        "Alur",
+        "Aringa",
+        "Kakwa",
+        "Kuku",
+        "Lugbara",
+        "Ma’di",
+        "Southern Ma’di",
+        "Nubi"
+      ]
+    },
+    {
+      "number": 93,
+      "place": "Zombo",
+      "languages": [
+        "Alur",
+        "Kebu",
+        "Southern Ma’di",
+        "Ndrulo"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1108 @@
+import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=7d84e7ee"; const Fragment = __vite__cjsImport0_react_jsxDevRuntime["Fragment"]; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import __vite__cjsImport1_react from "/node_modules/.vite/deps/react.js?v=7d84e7ee"; const useEffect = __vite__cjsImport1_react["useEffect"]; const useState = __vite__cjsImport1_react["useState"];
+import { ArrowRight, AudioLines, Check, ChevronDown, ClipboardCheck, FilePenLine, FileText, Lightbulb, Mail, MapPin, Menu, Monitor, Phone, Users, X } from "/node_modules/.vite/deps/lucide-react.js?v=7d84e7ee";
+import LanguageDirectory from "/src/LanguageDirectory.tsx";
+const asset = (name, size = 1440) => `/assets/${name}-${size}.webp`;
+const quote = "mailto:info@demalanguages.com?subject=Language%20services%20quote%20request";
+const finder = {
+  Document: { icon: FileText, service: "Translation", title: "Translation for documents", description: "Make written information clear and culturally appropriate for the people who need it." },
+  "Live Event": { icon: Users, service: "Interpretation", title: "Interpretation for live conversations", description: "Help people understand one another in meetings, events and other live settings." },
+  Recording: { icon: AudioLines, service: "Transcription", title: "Transcription for recordings", description: "Turn spoken audio or video into useful written material." },
+  Website: { icon: Monitor, service: "Localization", title: "Localization for digital content", description: "Adapt a website or app so its message feels natural to a new audience." }
+};
+const services = [
+  { name: "Translation", copy: "Accurate, thoughtful written translation for documents and everyday communication.", choice: "Document" },
+  { name: "Interpretation", copy: "Clear communication across languages in meetings, events and appointments.", choice: "Live Event" },
+  { name: "Localization", copy: "Website and app content adapted for the people you want to reach.", choice: "Website" },
+  { name: "Transcription", copy: "Spoken audio and video turned into clear, usable written records.", choice: "Recording" },
+  { name: "Editing & Proofreading", copy: "A careful final eye for documents that need to read clearly and confidently." },
+  { name: "Language Teaching", copy: "Practical language learning shaped around individual and group needs." }
+];
+function Picture({ name, alt, className = "", eager = false }) {
+  return /* @__PURE__ */ jsxDEV("img", { className, src: asset(name, name === "winnie" ? 720 : 1440), srcSet: name === "winnie" ? void 0 : `${asset(name, 720)} 720w, ${asset(name, 1440)} 1440w`, sizes: "(max-width: 700px) 100vw, 50vw", alt, loading: eager ? "eager" : "lazy", fetchPriority: eager ? "high" : void 0 }, void 0, false, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 27,
+    columnNumber: 10
+  }, this);
+}
+function Brand() {
+  return /* @__PURE__ */ jsxDEV("a", { className: "brand", href: "#top", "aria-label": "Dema Language Solutions, home", children: [
+    /* @__PURE__ */ jsxDEV("img", { src: "/assets/logo.png", alt: "Dema", width: "274", height: "285" }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 31,
+      columnNumber: 86
+    }, this),
+    /* @__PURE__ */ jsxDEV("span", { children: [
+      "Language",
+      /* @__PURE__ */ jsxDEV("br", {}, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 31,
+        columnNumber: 166
+      }, this),
+      "Solutions"
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 31,
+      columnNumber: 152
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 31,
+    columnNumber: 10
+  }, this);
+}
+function Header() {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState(() => window.location.hash || "#top");
+  useEffect(() => {
+    const close = (event) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onHash = () => setActive(window.location.hash || "#top");
+    window.addEventListener("keydown", close);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("hashchange", onHash);
+    onScroll();
+    return () => {
+      window.removeEventListener("keydown", close);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("hashchange", onHash);
+    };
+  }, []);
+  const nav = [["Home", "#top"], ["Services", "#services"], ["Languages", "#languages"], ["About", "#team"], ["Contact", "#contact"]];
+  return /* @__PURE__ */ jsxDEV("header", { className: scrolled ? "site-header is-scrolled" : "site-header", children: /* @__PURE__ */ jsxDEV("div", { className: "container header-inner", children: [
+    /* @__PURE__ */ jsxDEV(Brand, {}, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 49,
+      columnNumber: 123
+    }, this),
+    /* @__PURE__ */ jsxDEV("button", { className: "menu-toggle", type: "button", "aria-expanded": open, "aria-controls": "main-nav", "aria-label": open ? "Close menu" : "Open menu", onClick: () => setOpen(!open), children: open ? /* @__PURE__ */ jsxDEV(X, {}, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 49,
+      columnNumber: 310
+    }, this) : /* @__PURE__ */ jsxDEV(Menu, {}, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 49,
+      columnNumber: 318
+    }, this) }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 49,
+      columnNumber: 132
+    }, this),
+    /* @__PURE__ */ jsxDEV("nav", { id: "main-nav", className: open ? "nav is-open" : "nav", "aria-label": "Main navigation", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "nav-track", children: nav.map(([label, href]) => /* @__PURE__ */ jsxDEV("a", { className: active === href ? "is-active" : void 0, "aria-current": active === href ? "page" : void 0, href, onClick: () => setOpen(false), children: label }, href, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 49,
+        columnNumber: 480
+      }, this)) }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 49,
+        columnNumber: 425
+      }, this),
+      /* @__PURE__ */ jsxDEV("a", { className: "nav-quote", href: "#contact", onClick: () => setOpen(false), children: [
+        "Request a Quote ",
+        /* @__PURE__ */ jsxDEV(ArrowRight, { size: 16 }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 49,
+          columnNumber: 750
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 49,
+        columnNumber: 662
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 49,
+      columnNumber: 336
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 49,
+    columnNumber: 83
+  }, this) }, void 0, false, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 49,
+    columnNumber: 10
+  }, this);
+}
+function SectionIntro({ eyebrow, title, copy, center = false }) {
+  return /* @__PURE__ */ jsxDEV("div", { className: center ? "section-intro centered" : "section-intro", children: [
+    /* @__PURE__ */ jsxDEV("span", { className: "eyebrow", children: eyebrow }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 53,
+      columnNumber: 79
+    }, this),
+    /* @__PURE__ */ jsxDEV("h2", { children: title }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 53,
+      columnNumber: 121
+    }, this),
+    copy && /* @__PURE__ */ jsxDEV("p", { children: copy }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 53,
+      columnNumber: 146
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 53,
+    columnNumber: 10
+  }, this);
+}
+function Hero({ onPick }) {
+  const pickService = (choice) => {
+    onPick(choice);
+    requestAnimationFrame(() => document.querySelector("#find-service .finder-option.selected")?.focus({ preventScroll: true }));
+  };
+  const labels = [
+    { name: "Translation", choice: "Document" },
+    { name: "Interpretation", choice: "Live Event" },
+    { name: "Localization", choice: "Website" }
+  ];
+  return /* @__PURE__ */ jsxDEV("section", { id: "top", className: "hero", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "container hero-grid", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "hero-copy", children: [
+        /* @__PURE__ */ jsxDEV("h1", { children: [
+          "Every word",
+          /* @__PURE__ */ jsxDEV("br", {}, void 0, false, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+            lineNumber: 66,
+            columnNumber: 123
+          }, this),
+          "opens a ",
+          /* @__PURE__ */ jsxDEV("em", { children: "connection." }, void 0, false, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+            lineNumber: 66,
+            columnNumber: 137
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 66,
+          columnNumber: 109
+        }, this),
+        /* @__PURE__ */ jsxDEV("p", { children: "Professional translation, interpretation and localization for people and organisations across Uganda." }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 66,
+          columnNumber: 162
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "hero-actions", children: [
+          /* @__PURE__ */ jsxDEV("a", { className: "button button-red", href: "#contact", children: [
+            "Request a Quote ",
+            /* @__PURE__ */ jsxDEV(ArrowRight, { size: 20 }, void 0, false, {
+              fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+              lineNumber: 66,
+              columnNumber: 365
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+            lineNumber: 66,
+            columnNumber: 300
+          }, this),
+          /* @__PURE__ */ jsxDEV("a", { className: "button button-outline", href: "#services", children: [
+            "Explore Services ",
+            /* @__PURE__ */ jsxDEV(ArrowRight, { size: 20 }, void 0, false, {
+              fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+              lineNumber: 66,
+              columnNumber: 464
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+            lineNumber: 66,
+            columnNumber: 393
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 66,
+          columnNumber: 270
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 66,
+        columnNumber: 82
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "hero-visual", children: [
+        /* @__PURE__ */ jsxDEV("div", { className: "hero-peach", "aria-hidden": "true" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 66,
+          columnNumber: 533
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "hero-rings", "aria-hidden": "true" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 66,
+          columnNumber: 582
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "hero-photo", children: /* @__PURE__ */ jsxDEV(Picture, { name: "hero", alt: "Illustrative scene of two people discussing a document", eager: true }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 66,
+          columnNumber: 659
+        }, this) }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 66,
+          columnNumber: 631
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "hero-inset", children: /* @__PURE__ */ jsxDEV(Picture, { name: "document", alt: "Illustrative close-up of a document being reviewed" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 66,
+          columnNumber: 783
+        }, this) }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 66,
+          columnNumber: 755
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "hero-service-labels", "aria-label": "Explore a service", children: labels.map(({ name, choice }) => /* @__PURE__ */ jsxDEV("a", { href: "#find-service", onClick: () => pickService(choice), children: name }, name, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 66,
+          columnNumber: 975
+        }, this)) }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 66,
+          columnNumber: 873
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 66,
+        columnNumber: 504
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 66,
+      columnNumber: 45
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "container hero-proof", children: [
+      /* @__PURE__ */ jsxDEV("span", { children: "Trusted by organisations in Uganda" }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 66,
+        columnNumber: 1114
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { children: [
+        /* @__PURE__ */ jsxDEV("strong", { children: "AFAAS" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 66,
+          columnNumber: 1166
+        }, this),
+        /* @__PURE__ */ jsxDEV("i", {}, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 66,
+          columnNumber: 1188
+        }, this),
+        /* @__PURE__ */ jsxDEV("strong", { children: "Uganda Law Society" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 66,
+          columnNumber: 1193
+        }, this),
+        /* @__PURE__ */ jsxDEV("i", {}, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 66,
+          columnNumber: 1228
+        }, this),
+        /* @__PURE__ */ jsxDEV("strong", { children: "FHI 360" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 66,
+          columnNumber: 1233
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 66,
+        columnNumber: 1161
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 66,
+      columnNumber: 1076
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 66,
+    columnNumber: 10
+  }, this);
+}
+function Services({ onPick }) {
+  return /* @__PURE__ */ jsxDEV("section", { id: "services", className: "section services-section", children: /* @__PURE__ */ jsxDEV("div", { className: "container", children: [
+    /* @__PURE__ */ jsxDEV(SectionIntro, { eyebrow: "What we do", title: "Language support for every message", copy: "The right language service helps your message reach people clearly, wherever the conversation begins." }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 70,
+      columnNumber: 97
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "services-showcase", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "services-photo", children: /* @__PURE__ */ jsxDEV(Picture, { name: "services", alt: "Illustrative scene of two women discussing a document" }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 70,
+        columnNumber: 353
+      }, this) }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 70,
+        columnNumber: 321
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "services-list", children: services.map(({ name, copy, choice }) => /* @__PURE__ */ jsxDEV("a", { className: "service-row", href: choice ? "#find-service" : "#contact", onClick: () => choice && onPick(choice), children: [
+        /* @__PURE__ */ jsxDEV("span", { className: "service-row-copy", children: [
+          /* @__PURE__ */ jsxDEV("h3", { children: name }, void 0, false, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+            lineNumber: 70,
+            columnNumber: 678
+          }, this),
+          /* @__PURE__ */ jsxDEV("p", { children: copy }, void 0, false, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+            lineNumber: 70,
+            columnNumber: 693
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 70,
+          columnNumber: 643
+        }, this),
+        /* @__PURE__ */ jsxDEV(ArrowRight, { className: "service-row-arrow", size: 21, "aria-hidden": "true" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 70,
+          columnNumber: 713
+        }, this)
+      ] }, name, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 70,
+        columnNumber: 519
+      }, this)) }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 70,
+        columnNumber: 446
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 70,
+      columnNumber: 286
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 70,
+    columnNumber: 70
+  }, this) }, void 0, false, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 70,
+    columnNumber: 10
+  }, this);
+}
+function ServiceFinder({ choice, setChoice }) {
+  const result = finder[choice];
+  const ResultIcon = result.icon;
+  return /* @__PURE__ */ jsxDEV("section", { id: "find-service", className: "section finder-section", children: /* @__PURE__ */ jsxDEV("div", { className: "container", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "finder-head", children: [
+      /* @__PURE__ */ jsxDEV("span", { className: "eyebrow light", children: "Find your service" }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 76,
+        columnNumber: 128
+      }, this),
+      /* @__PURE__ */ jsxDEV("h2", { children: [
+        "What do you need to ",
+        /* @__PURE__ */ jsxDEV("em", { children: "communicate?" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 76,
+          columnNumber: 208
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 76,
+        columnNumber: 184
+      }, this),
+      /* @__PURE__ */ jsxDEV("p", { children: "Choose what you’re working with and see how we can help." }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 76,
+        columnNumber: 234
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 76,
+      columnNumber: 99
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "finder-options", role: "group", "aria-label": "Choose a communication need", children: Object.keys(finder).map((item) => {
+      const Icon = finder[item].icon;
+      return /* @__PURE__ */ jsxDEV("button", { type: "button", className: choice === item ? "finder-option selected" : "finder-option", "aria-pressed": choice === item, onClick: () => setChoice(item), children: [
+        /* @__PURE__ */ jsxDEV(Icon, { size: 31, strokeWidth: 1.7 }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 76,
+          columnNumber: 646
+        }, this),
+        /* @__PURE__ */ jsxDEV("span", { children: item }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 76,
+          columnNumber: 682
+        }, this),
+        /* @__PURE__ */ jsxDEV("span", { className: "option-check", children: /* @__PURE__ */ jsxDEV(Check, { size: 13 }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 76,
+          columnNumber: 732
+        }, this) }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 76,
+          columnNumber: 701
+        }, this)
+      ] }, item, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 76,
+        columnNumber: 477
+      }, this);
+    }) }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 76,
+      columnNumber: 303
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "finder-result", "aria-live": "polite", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "result-icon", children: /* @__PURE__ */ jsxDEV(ResultIcon, { size: 34, strokeWidth: 1.6 }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 76,
+        columnNumber: 856
+      }, this) }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 76,
+        columnNumber: 827
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { children: [
+        /* @__PURE__ */ jsxDEV("span", { className: "result-label", children: [
+          "A service to explore · ",
+          result.service
+        ] }, void 0, true, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 76,
+          columnNumber: 909
+        }, this),
+        /* @__PURE__ */ jsxDEV("h3", { children: result.title }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 76,
+          columnNumber: 986
+        }, this),
+        /* @__PURE__ */ jsxDEV("p", { children: result.description }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 76,
+          columnNumber: 1009
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 76,
+        columnNumber: 904
+      }, this),
+      /* @__PURE__ */ jsxDEV("a", { className: "button button-red", href: "#contact", children: [
+        "Request a Quote ",
+        /* @__PURE__ */ jsxDEV(ArrowRight, { size: 17 }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 76,
+          columnNumber: 1107
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 76,
+        columnNumber: 1042
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 76,
+      columnNumber: 777
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 76,
+    columnNumber: 72
+  }, this) }, void 0, false, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 76,
+    columnNumber: 10
+  }, this);
+}
+function LanguagesSection() {
+  return /* @__PURE__ */ jsxDEV("section", { id: "languages", className: "section languages-section", children: /* @__PURE__ */ jsxDEV("div", { className: "container", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "split-grid", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "split-copy", children: [
+        /* @__PURE__ */ jsxDEV(SectionIntro, { eyebrow: "Language expertise", title: "Rooted in Uganda. Connected through language.", copy: "Local language knowledge and cultural context help make communication more meaningful. Tell us who you need to reach and we’ll discuss the right approach." }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 80,
+          columnNumber: 155
+        }, this),
+        /* @__PURE__ */ jsxDEV("p", { className: "examples-label", children: "Examples of languages featured by Dema" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 80,
+          columnNumber: 416
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "language-tags", children: [
+          /* @__PURE__ */ jsxDEV("span", { children: "Luganda" }, void 0, false, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+            lineNumber: 80,
+            columnNumber: 519
+          }, this),
+          /* @__PURE__ */ jsxDEV("span", { children: "Runyankore" }, void 0, false, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+            lineNumber: 80,
+            columnNumber: 539
+          }, this),
+          /* @__PURE__ */ jsxDEV("span", { children: "Acholi" }, void 0, false, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+            lineNumber: 80,
+            columnNumber: 562
+          }, this),
+          /* @__PURE__ */ jsxDEV("span", { children: "Lusoga" }, void 0, false, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+            lineNumber: 80,
+            columnNumber: 581
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 80,
+          columnNumber: 488
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { className: "text-link", href: "#contact", children: [
+          "Ask about your language ",
+          /* @__PURE__ */ jsxDEV(ArrowRight, { size: 18 }, void 0, false, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+            lineNumber: 80,
+            columnNumber: 671
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 80,
+          columnNumber: 606
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 80,
+        columnNumber: 127
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "language-visual", children: [
+        /* @__PURE__ */ jsxDEV("figure", { className: "language-photo", children: [
+          /* @__PURE__ */ jsxDEV(Picture, { name: "kampala", alt: "Panoramic view across Kampala, Uganda" }, void 0, false, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+            lineNumber: 80,
+            columnNumber: 773
+          }, this),
+          /* @__PURE__ */ jsxDEV("figcaption", { children: [
+            /* @__PURE__ */ jsxDEV("span", { children: "Kampala, Uganda" }, void 0, false, {
+              fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+              lineNumber: 80,
+              columnNumber: 855
+            }, this),
+            /* @__PURE__ */ jsxDEV("span", { children: [
+              "Photo: ",
+              /* @__PURE__ */ jsxDEV("a", { href: "https://commons.wikimedia.org/wiki/File:View_of_Kampala_city_1.jpg", target: "_blank", rel: "noopener noreferrer", children: "Dr. S-mon" }, void 0, false, {
+                fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+                lineNumber: 80,
+                columnNumber: 896
+              }, this),
+              " · ",
+              /* @__PURE__ */ jsxDEV("a", { href: "https://creativecommons.org/licenses/by/4.0/", target: "_blank", rel: "noopener noreferrer", children: "CC BY 4.0" }, void 0, false, {
+                fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+                lineNumber: 80,
+                columnNumber: 1031
+              }, this)
+            ] }, void 0, true, {
+              fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+              lineNumber: 80,
+              columnNumber: 883
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+            lineNumber: 80,
+            columnNumber: 843
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 80,
+          columnNumber: 738
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "uganda-map", children: [
+          /* @__PURE__ */ jsxDEV("img", { src: "/assets/uganda-outline.svg", alt: "Outline map of Uganda", width: "320", height: "360" }, void 0, false, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+            lineNumber: 80,
+            columnNumber: 1198
+          }, this),
+          /* @__PURE__ */ jsxDEV("span", { children: "Rooted in Uganda" }, void 0, false, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+            lineNumber: 80,
+            columnNumber: 1291
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 80,
+          columnNumber: 1170
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 80,
+        columnNumber: 705
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 80,
+      columnNumber: 99
+    }, this),
+    /* @__PURE__ */ jsxDEV(LanguageDirectory, {}, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 80,
+      columnNumber: 1338
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 80,
+    columnNumber: 72
+  }, this) }, void 0, false, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 80,
+    columnNumber: 10
+  }, this);
+}
+function Approach() {
+  const steps = [
+    { number: "01", title: "Share your brief", copy: "Tell us what you need, who it is for and the languages involved.", icon: FilePenLine },
+    { number: "02", title: "Agree the approach", copy: "We’ll discuss the service and scope that fit your request.", icon: Lightbulb },
+    { number: "03", title: "Receive your work", copy: "Get your completed language work in the agreed format.", icon: ClipboardCheck }
+  ];
+  return /* @__PURE__ */ jsxDEV("section", { id: "approach", className: "section approach-section", children: /* @__PURE__ */ jsxDEV("div", { className: "container approach-layout", children: [
+    /* @__PURE__ */ jsxDEV(SectionIntro, { eyebrow: "How it works", title: "A clear path from request to result", copy: "Tell us what you need. We’ll help shape the right language solution." }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 89,
+      columnNumber: 113
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "steps", children: steps.map(({ number, title, copy, icon: Icon }) => /* @__PURE__ */ jsxDEV("div", { className: "step", children: [
+      /* @__PURE__ */ jsxDEV("span", { className: "step-number", children: number }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 89,
+        columnNumber: 382
+      }, this),
+      /* @__PURE__ */ jsxDEV(Icon, { className: "step-icon", size: 35, strokeWidth: 1.7 }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 89,
+        columnNumber: 427
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { children: [
+        /* @__PURE__ */ jsxDEV("h3", { children: title }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 89,
+          columnNumber: 490
+        }, this),
+        /* @__PURE__ */ jsxDEV("p", { children: copy }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 89,
+          columnNumber: 506
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 89,
+        columnNumber: 485
+      }, this)
+    ] }, number, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 89,
+      columnNumber: 347
+    }, this)) }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 89,
+      columnNumber: 272
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "approach-photo", children: /* @__PURE__ */ jsxDEV(Picture, { name: "document", alt: "Illustrative scene of people reviewing a document together" }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 89,
+      columnNumber: 571
+    }, this) }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 89,
+      columnNumber: 539
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 89,
+    columnNumber: 70
+  }, this) }, void 0, false, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 89,
+    columnNumber: 10
+  }, this);
+}
+function Team() {
+  const members = [
+    { name: "Dr. Kawalya Deo", image: "kawalya", alt: "Portrait of Dr. Kawalya Deo" },
+    { name: "Dr. Medadi Ssentanda", image: "medadi", alt: "Portrait of Dr. Medadi Ssentanda" },
+    { name: "Ms. Winnie Nakatuddde", image: "winnie", alt: "Portrait of Ms. Winnie Nakatuddde", role: "Administrative Assistant" }
+  ];
+  return /* @__PURE__ */ jsxDEV("section", { id: "team", className: "section team-section", children: /* @__PURE__ */ jsxDEV("div", { className: "container", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "team-heading", children: /* @__PURE__ */ jsxDEV(SectionIntro, { eyebrow: "Our team", title: "People who know the power of language", copy: "Meet the people behind Dema Language Solutions." }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 98,
+      columnNumber: 119
+    }, this) }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 98,
+      columnNumber: 89
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "team-grid", children: members.map((member) => /* @__PURE__ */ jsxDEV("article", { className: "team-card", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "portrait", children: /* @__PURE__ */ jsxDEV(Picture, { name: member.image, alt: member.alt }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 98,
+        columnNumber: 386
+      }, this) }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 98,
+        columnNumber: 360
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "team-card-body", children: [
+        /* @__PURE__ */ jsxDEV("h3", { children: member.name }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 98,
+          columnNumber: 472
+        }, this),
+        member.role && /* @__PURE__ */ jsxDEV("p", { children: member.role }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 98,
+          columnNumber: 510
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 98,
+        columnNumber: 440
+      }, this)
+    ] }, member.name, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 98,
+      columnNumber: 311
+    }, this)) }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 98,
+      columnNumber: 261
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 98,
+    columnNumber: 62
+  }, this) }, void 0, false, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 98,
+    columnNumber: 10
+  }, this);
+}
+function Clients() {
+  return /* @__PURE__ */ jsxDEV("section", { id: "clients", className: "section clients-section", children: /* @__PURE__ */ jsxDEV("div", { className: "container", children: [
+    /* @__PURE__ */ jsxDEV(SectionIntro, { eyebrow: "Our clients", title: "Trusted for meaningful work", copy: "Organisations that have turned to Dema for language support.", center: true }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 102,
+      columnNumber: 95
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "clients-grid", children: ["AFAAS", "Penal Reform International", "Marie Stopes Uganda", "Justice Centres Uganda", "Uganda Law Society", "FHI 360"].map((name) => /* @__PURE__ */ jsxDEV("div", { className: "client-name", children: name }, name, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 102,
+      columnNumber: 409
+    }, this)) }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 102,
+      columnNumber: 244
+    }, this),
+    /* @__PURE__ */ jsxDEV("p", { className: "clients-note", children: "Selected clients listed by Dema." }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 102,
+      columnNumber: 469
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 102,
+    columnNumber: 68
+  }, this) }, void 0, false, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 102,
+    columnNumber: 10
+  }, this);
+}
+function Contact() {
+  return /* @__PURE__ */ jsxDEV("section", { id: "contact", className: "contact-section", children: /* @__PURE__ */ jsxDEV("div", { className: "container", children: /* @__PURE__ */ jsxDEV("div", { className: "contact-panel", children: [
+    /* @__PURE__ */ jsxDEV("span", { className: "eyebrow light", children: "Let’s connect" }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 106,
+      columnNumber: 118
+    }, this),
+    /* @__PURE__ */ jsxDEV("h2", { children: [
+      "Let’s bring your message",
+      /* @__PURE__ */ jsxDEV("br", {}, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 106,
+        columnNumber: 198
+      }, this),
+      "to more people."
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 106,
+      columnNumber: 170
+    }, this),
+    /* @__PURE__ */ jsxDEV("p", { children: "Tell us about your project and we’ll help you find the right language service." }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 106,
+      columnNumber: 224
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "contact-actions", children: [
+      /* @__PURE__ */ jsxDEV("a", { className: "button button-red", href: quote, children: [
+        "Request a Quote ",
+        /* @__PURE__ */ jsxDEV(ArrowRight, { size: 20 }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 106,
+          columnNumber: 404
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 106,
+        columnNumber: 342
+      }, this),
+      /* @__PURE__ */ jsxDEV("a", { className: "button button-ghost", href: "mailto:info@demalanguages.com", children: [
+        "Email Dema ",
+        /* @__PURE__ */ jsxDEV(Mail, { size: 18 }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 106,
+          columnNumber: 515
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 106,
+        columnNumber: 432
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 106,
+      columnNumber: 309
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 106,
+    columnNumber: 87
+  }, this) }, void 0, false, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 106,
+    columnNumber: 60
+  }, this) }, void 0, false, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 106,
+    columnNumber: 10
+  }, this);
+}
+function Footer() {
+  return /* @__PURE__ */ jsxDEV("footer", { className: "footer", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "container footer-grid", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "footer-about", children: [
+        /* @__PURE__ */ jsxDEV(Brand, {}, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 110,
+          columnNumber: 106
+        }, this),
+        /* @__PURE__ */ jsxDEV("p", { children: "Translation and interpretation that help communities and organisations communicate clearly in Uganda." }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 110,
+          columnNumber: 115
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 110,
+        columnNumber: 76
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { children: [
+        /* @__PURE__ */ jsxDEV("h3", { children: "Explore" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 110,
+          columnNumber: 234
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "#services", children: "Services" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 110,
+          columnNumber: 250
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "#find-service", children: "Find a service" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 110,
+          columnNumber: 282
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "#languages", children: "Languages" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 110,
+          columnNumber: 324
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "#approach", children: "Our approach" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 110,
+          columnNumber: 358
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 110,
+        columnNumber: 229
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { children: [
+        /* @__PURE__ */ jsxDEV("h3", { children: "About" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 110,
+          columnNumber: 405
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "#team", children: "Our team" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 110,
+          columnNumber: 419
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "#clients", children: "Our clients" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 110,
+          columnNumber: 447
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "#contact", children: "Contact" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 110,
+          columnNumber: 481
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 110,
+        columnNumber: 400
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { children: [
+        /* @__PURE__ */ jsxDEV("h3", { children: "Get in touch" }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 110,
+          columnNumber: 522
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "mailto:info@demalanguages.com", children: [
+          /* @__PURE__ */ jsxDEV(Mail, { size: 16 }, void 0, false, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+            lineNumber: 110,
+            columnNumber: 583
+          }, this),
+          " info@demalanguages.com"
+        ] }, void 0, true, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 110,
+          columnNumber: 543
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "tel:+256702442470", children: [
+          /* @__PURE__ */ jsxDEV(Phone, { size: 16 }, void 0, false, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+            lineNumber: 110,
+            columnNumber: 656
+          }, this),
+          " +256 702 442 470"
+        ] }, void 0, true, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 110,
+          columnNumber: 628
+        }, this),
+        /* @__PURE__ */ jsxDEV("span", { className: "footer-location", children: [
+          /* @__PURE__ */ jsxDEV(MapPin, { size: 16 }, void 0, false, {
+            fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+            lineNumber: 110,
+            columnNumber: 730
+          }, this),
+          " Kampala, Uganda"
+        ] }, void 0, true, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 110,
+          columnNumber: 696
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 110,
+        columnNumber: 517
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 110,
+      columnNumber: 37
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "container footer-bottom", children: [
+      /* @__PURE__ */ jsxDEV("span", { children: [
+        "© ",
+        (/* @__PURE__ */ new Date()).getFullYear(),
+        " Dema Language Solutions. All rights reserved."
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 110,
+        columnNumber: 826
+      }, this),
+      /* @__PURE__ */ jsxDEV("a", { href: "#top", children: [
+        "Back to top ",
+        /* @__PURE__ */ jsxDEV(ChevronDown, { size: 14 }, void 0, false, {
+          fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+          lineNumber: 110,
+          columnNumber: 940
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 110,
+        columnNumber: 913
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 110,
+      columnNumber: 785
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 110,
+    columnNumber: 10
+  }, this);
+}
+export default function App() {
+  const [choice, setChoice] = useState("Document");
+  return /* @__PURE__ */ jsxDEV(Fragment, { children: [
+    /* @__PURE__ */ jsxDEV("a", { className: "skip-link", href: "#main", children: "Skip to content" }, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 115,
+      columnNumber: 12
+    }, this),
+    /* @__PURE__ */ jsxDEV(Header, {}, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 115,
+      columnNumber: 69
+    }, this),
+    /* @__PURE__ */ jsxDEV("main", { id: "main", children: [
+      /* @__PURE__ */ jsxDEV(Hero, { onPick: setChoice }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 115,
+        columnNumber: 95
+      }, this),
+      /* @__PURE__ */ jsxDEV(Services, { onPick: setChoice }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 115,
+        columnNumber: 122
+      }, this),
+      /* @__PURE__ */ jsxDEV(ServiceFinder, { choice, setChoice }, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 115,
+        columnNumber: 153
+      }, this),
+      /* @__PURE__ */ jsxDEV(LanguagesSection, {}, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 115,
+        columnNumber: 208
+      }, this),
+      /* @__PURE__ */ jsxDEV(Approach, {}, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 115,
+        columnNumber: 228
+      }, this),
+      /* @__PURE__ */ jsxDEV(Team, {}, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 115,
+        columnNumber: 240
+      }, this),
+      /* @__PURE__ */ jsxDEV(Clients, {}, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 115,
+        columnNumber: 248
+      }, this),
+      /* @__PURE__ */ jsxDEV(Contact, {}, void 0, false, {
+        fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+        lineNumber: 115,
+        columnNumber: 259
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 115,
+      columnNumber: 79
+    }, this),
+    /* @__PURE__ */ jsxDEV(Footer, {}, void 0, false, {
+      fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+      lineNumber: 115,
+      columnNumber: 277
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Solomon/Projects/Clients/Dema-2/src/App.tsx",
+    lineNumber: 115,
+    columnNumber: 10
+  }, this);
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkFwcC50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgdXNlRWZmZWN0LCB1c2VTdGF0ZSB9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHsgQXJyb3dSaWdodCwgQXVkaW9MaW5lcywgQ2hlY2ssIENoZXZyb25Eb3duLCBDbGlwYm9hcmRDaGVjaywgRmlsZVBlbkxpbmUsIEZpbGVUZXh0LCBMaWdodGJ1bGIsIE1haWwsIE1hcFBpbiwgTWVudSwgTW9uaXRvciwgUGhvbmUsIFVzZXJzLCBYIH0gZnJvbSAnbHVjaWRlLXJlYWN0J1xuaW1wb3J0IHR5cGUgeyBMdWNpZGVJY29uIH0gZnJvbSAnbHVjaWRlLXJlYWN0J1xuaW1wb3J0IExhbmd1YWdlRGlyZWN0b3J5IGZyb20gJy4vTGFuZ3VhZ2VEaXJlY3RvcnknXG5cbmNvbnN0IGFzc2V0ID0gKG5hbWU6IHN0cmluZywgc2l6ZSA9IDE0NDApID0+IGAvYXNzZXRzLyR7bmFtZX0tJHtzaXplfS53ZWJwYFxuY29uc3QgcXVvdGUgPSAnbWFpbHRvOmluZm9AZGVtYWxhbmd1YWdlcy5jb20/c3ViamVjdD1MYW5ndWFnZSUyMHNlcnZpY2VzJTIwcXVvdGUlMjByZXF1ZXN0J1xuXG50eXBlIENob2ljZSA9ICdEb2N1bWVudCcgfCAnTGl2ZSBFdmVudCcgfCAnUmVjb3JkaW5nJyB8ICdXZWJzaXRlJ1xuY29uc3QgZmluZGVyOiBSZWNvcmQ8Q2hvaWNlLCB7IGljb246IEx1Y2lkZUljb247IHNlcnZpY2U6IHN0cmluZzsgdGl0bGU6IHN0cmluZzsgZGVzY3JpcHRpb246IHN0cmluZyB9PiA9IHtcbiAgRG9jdW1lbnQ6IHsgaWNvbjogRmlsZVRleHQsIHNlcnZpY2U6ICdUcmFuc2xhdGlvbicsIHRpdGxlOiAnVHJhbnNsYXRpb24gZm9yIGRvY3VtZW50cycsIGRlc2NyaXB0aW9uOiAnTWFrZSB3cml0dGVuIGluZm9ybWF0aW9uIGNsZWFyIGFuZCBjdWx0dXJhbGx5IGFwcHJvcHJpYXRlIGZvciB0aGUgcGVvcGxlIHdobyBuZWVkIGl0LicgfSxcbiAgJ0xpdmUgRXZlbnQnOiB7IGljb246IFVzZXJzLCBzZXJ2aWNlOiAnSW50ZXJwcmV0YXRpb24nLCB0aXRsZTogJ0ludGVycHJldGF0aW9uIGZvciBsaXZlIGNvbnZlcnNhdGlvbnMnLCBkZXNjcmlwdGlvbjogJ0hlbHAgcGVvcGxlIHVuZGVyc3RhbmQgb25lIGFub3RoZXIgaW4gbWVldGluZ3MsIGV2ZW50cyBhbmQgb3RoZXIgbGl2ZSBzZXR0aW5ncy4nIH0sXG4gIFJlY29yZGluZzogeyBpY29uOiBBdWRpb0xpbmVzLCBzZXJ2aWNlOiAnVHJhbnNjcmlwdGlvbicsIHRpdGxlOiAnVHJhbnNjcmlwdGlvbiBmb3IgcmVjb3JkaW5ncycsIGRlc2NyaXB0aW9uOiAnVHVybiBzcG9rZW4gYXVkaW8gb3IgdmlkZW8gaW50byB1c2VmdWwgd3JpdHRlbiBtYXRlcmlhbC4nIH0sXG4gIFdlYnNpdGU6IHsgaWNvbjogTW9uaXRvciwgc2VydmljZTogJ0xvY2FsaXphdGlvbicsIHRpdGxlOiAnTG9jYWxpemF0aW9uIGZvciBkaWdpdGFsIGNvbnRlbnQnLCBkZXNjcmlwdGlvbjogJ0FkYXB0IGEgd2Vic2l0ZSBvciBhcHAgc28gaXRzIG1lc3NhZ2UgZmVlbHMgbmF0dXJhbCB0byBhIG5ldyBhdWRpZW5jZS4nIH0sXG59XG5cbmNvbnN0IHNlcnZpY2VzOiB7IG5hbWU6IHN0cmluZzsgY29weTogc3RyaW5nOyBjaG9pY2U/OiBDaG9pY2UgfVtdID0gW1xuICB7IG5hbWU6ICdUcmFuc2xhdGlvbicsIGNvcHk6ICdBY2N1cmF0ZSwgdGhvdWdodGZ1bCB3cml0dGVuIHRyYW5zbGF0aW9uIGZvciBkb2N1bWVudHMgYW5kIGV2ZXJ5ZGF5IGNvbW11bmljYXRpb24uJywgY2hvaWNlOiAnRG9jdW1lbnQnIH0sXG4gIHsgbmFtZTogJ0ludGVycHJldGF0aW9uJywgY29weTogJ0NsZWFyIGNvbW11bmljYXRpb24gYWNyb3NzIGxhbmd1YWdlcyBpbiBtZWV0aW5ncywgZXZlbnRzIGFuZCBhcHBvaW50bWVudHMuJywgY2hvaWNlOiAnTGl2ZSBFdmVudCcgfSxcbiAgeyBuYW1lOiAnTG9jYWxpemF0aW9uJywgY29weTogJ1dlYnNpdGUgYW5kIGFwcCBjb250ZW50IGFkYXB0ZWQgZm9yIHRoZSBwZW9wbGUgeW91IHdhbnQgdG8gcmVhY2guJywgY2hvaWNlOiAnV2Vic2l0ZScgfSxcbiAgeyBuYW1lOiAnVHJhbnNjcmlwdGlvbicsIGNvcHk6ICdTcG9rZW4gYXVkaW8gYW5kIHZpZGVvIHR1cm5lZCBpbnRvIGNsZWFyLCB1c2FibGUgd3JpdHRlbiByZWNvcmRzLicsIGNob2ljZTogJ1JlY29yZGluZycgfSxcbiAgeyBuYW1lOiAnRWRpdGluZyAmIFByb29mcmVhZGluZycsIGNvcHk6ICdBIGNhcmVmdWwgZmluYWwgZXllIGZvciBkb2N1bWVudHMgdGhhdCBuZWVkIHRvIHJlYWQgY2xlYXJseSBhbmQgY29uZmlkZW50bHkuJyB9LFxuICB7IG5hbWU6ICdMYW5ndWFnZSBUZWFjaGluZycsIGNvcHk6ICdQcmFjdGljYWwgbGFuZ3VhZ2UgbGVhcm5pbmcgc2hhcGVkIGFyb3VuZCBpbmRpdmlkdWFsIGFuZCBncm91cCBuZWVkcy4nIH0sXG5dXG5cbmZ1bmN0aW9uIFBpY3R1cmUoeyBuYW1lLCBhbHQsIGNsYXNzTmFtZSA9ICcnLCBlYWdlciA9IGZhbHNlIH06IHsgbmFtZTogc3RyaW5nOyBhbHQ6IHN0cmluZzsgY2xhc3NOYW1lPzogc3RyaW5nOyBlYWdlcj86IGJvb2xlYW4gfSkge1xuICByZXR1cm4gPGltZyBjbGFzc05hbWU9e2NsYXNzTmFtZX0gc3JjPXthc3NldChuYW1lLCBuYW1lID09PSAnd2lubmllJyA/IDcyMCA6IDE0NDApfSBzcmNTZXQ9e25hbWUgPT09ICd3aW5uaWUnID8gdW5kZWZpbmVkIDogYCR7YXNzZXQobmFtZSwgNzIwKX0gNzIwdywgJHthc3NldChuYW1lLCAxNDQwKX0gMTQ0MHdgfSBzaXplcz1cIihtYXgtd2lkdGg6IDcwMHB4KSAxMDB2dywgNTB2d1wiIGFsdD17YWx0fSBsb2FkaW5nPXtlYWdlciA/ICdlYWdlcicgOiAnbGF6eSd9IGZldGNoUHJpb3JpdHk9e2VhZ2VyID8gJ2hpZ2gnIDogdW5kZWZpbmVkfSAvPlxufVxuXG5mdW5jdGlvbiBCcmFuZCgpIHtcbiAgcmV0dXJuIDxhIGNsYXNzTmFtZT1cImJyYW5kXCIgaHJlZj1cIiN0b3BcIiBhcmlhLWxhYmVsPVwiRGVtYSBMYW5ndWFnZSBTb2x1dGlvbnMsIGhvbWVcIj48aW1nIHNyYz1cIi9hc3NldHMvbG9nby5wbmdcIiBhbHQ9XCJEZW1hXCIgd2lkdGg9XCIyNzRcIiBoZWlnaHQ9XCIyODVcIiAvPjxzcGFuPkxhbmd1YWdlPGJyIC8+U29sdXRpb25zPC9zcGFuPjwvYT5cbn1cblxuZnVuY3Rpb24gSGVhZGVyKCkge1xuICBjb25zdCBbb3Blbiwgc2V0T3Blbl0gPSB1c2VTdGF0ZShmYWxzZSlcbiAgY29uc3QgW3Njcm9sbGVkLCBzZXRTY3JvbGxlZF0gPSB1c2VTdGF0ZShmYWxzZSlcbiAgY29uc3QgW2FjdGl2ZSwgc2V0QWN0aXZlXSA9IHVzZVN0YXRlKCgpID0+IHdpbmRvdy5sb2NhdGlvbi5oYXNoIHx8ICcjdG9wJylcbiAgdXNlRWZmZWN0KCgpID0+IHtcbiAgICBjb25zdCBjbG9zZSA9IChldmVudDogS2V5Ym9hcmRFdmVudCkgPT4geyBpZiAoZXZlbnQua2V5ID09PSAnRXNjYXBlJykgc2V0T3BlbihmYWxzZSkgfVxuICAgIGNvbnN0IG9uU2Nyb2xsID0gKCkgPT4gc2V0U2Nyb2xsZWQod2luZG93LnNjcm9sbFkgPiAxMilcbiAgICBjb25zdCBvbkhhc2ggPSAoKSA9PiBzZXRBY3RpdmUod2luZG93LmxvY2F0aW9uLmhhc2ggfHwgJyN0b3AnKVxuICAgIHdpbmRvdy5hZGRFdmVudExpc3RlbmVyKCdrZXlkb3duJywgY2xvc2UpXG4gICAgd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoJ3Njcm9sbCcsIG9uU2Nyb2xsLCB7IHBhc3NpdmU6IHRydWUgfSlcbiAgICB3aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcignaGFzaGNoYW5nZScsIG9uSGFzaClcbiAgICBvblNjcm9sbCgpXG4gICAgcmV0dXJuICgpID0+IHsgd2luZG93LnJlbW92ZUV2ZW50TGlzdGVuZXIoJ2tleWRvd24nLCBjbG9zZSk7IHdpbmRvdy5yZW1vdmVFdmVudExpc3RlbmVyKCdzY3JvbGwnLCBvblNjcm9sbCk7IHdpbmRvdy5yZW1vdmVFdmVudExpc3RlbmVyKCdoYXNoY2hhbmdlJywgb25IYXNoKSB9XG4gIH0sIFtdKVxuICBjb25zdCBuYXYgPSBbWydIb21lJywgJyN0b3AnXSwgWydTZXJ2aWNlcycsICcjc2VydmljZXMnXSwgWydMYW5ndWFnZXMnLCAnI2xhbmd1YWdlcyddLCBbJ0Fib3V0JywgJyN0ZWFtJ10sIFsnQ29udGFjdCcsICcjY29udGFjdCddXVxuICByZXR1cm4gPGhlYWRlciBjbGFzc05hbWU9e3Njcm9sbGVkID8gJ3NpdGUtaGVhZGVyIGlzLXNjcm9sbGVkJyA6ICdzaXRlLWhlYWRlcid9PjxkaXYgY2xhc3NOYW1lPVwiY29udGFpbmVyIGhlYWRlci1pbm5lclwiPjxCcmFuZCAvPjxidXR0b24gY2xhc3NOYW1lPVwibWVudS10b2dnbGVcIiB0eXBlPVwiYnV0dG9uXCIgYXJpYS1leHBhbmRlZD17b3Blbn0gYXJpYS1jb250cm9scz1cIm1haW4tbmF2XCIgYXJpYS1sYWJlbD17b3BlbiA/ICdDbG9zZSBtZW51JyA6ICdPcGVuIG1lbnUnfSBvbkNsaWNrPXsoKSA9PiBzZXRPcGVuKCFvcGVuKX0+e29wZW4gPyA8WCAvPiA6IDxNZW51IC8+fTwvYnV0dG9uPjxuYXYgaWQ9XCJtYWluLW5hdlwiIGNsYXNzTmFtZT17b3BlbiA/ICduYXYgaXMtb3BlbicgOiAnbmF2J30gYXJpYS1sYWJlbD1cIk1haW4gbmF2aWdhdGlvblwiPjxkaXYgY2xhc3NOYW1lPVwibmF2LXRyYWNrXCI+e25hdi5tYXAoKFtsYWJlbCwgaHJlZl0pID0+IDxhIGtleT17aHJlZn0gY2xhc3NOYW1lPXthY3RpdmUgPT09IGhyZWYgPyAnaXMtYWN0aXZlJyA6IHVuZGVmaW5lZH0gYXJpYS1jdXJyZW50PXthY3RpdmUgPT09IGhyZWYgPyAncGFnZScgOiB1bmRlZmluZWR9IGhyZWY9e2hyZWZ9IG9uQ2xpY2s9eygpID0+IHNldE9wZW4oZmFsc2UpfT57bGFiZWx9PC9hPil9PC9kaXY+PGEgY2xhc3NOYW1lPVwibmF2LXF1b3RlXCIgaHJlZj1cIiNjb250YWN0XCIgb25DbGljaz17KCkgPT4gc2V0T3BlbihmYWxzZSl9PlJlcXVlc3QgYSBRdW90ZSA8QXJyb3dSaWdodCBzaXplPXsxNn0gLz48L2E+PC9uYXY+PC9kaXY+PC9oZWFkZXI+XG59XG5cbmZ1bmN0aW9uIFNlY3Rpb25JbnRybyh7IGV5ZWJyb3csIHRpdGxlLCBjb3B5LCBjZW50ZXIgPSBmYWxzZSB9OiB7IGV5ZWJyb3c6IHN0cmluZzsgdGl0bGU6IHN0cmluZzsgY29weT86IHN0cmluZzsgY2VudGVyPzogYm9vbGVhbiB9KSB7XG4gIHJldHVybiA8ZGl2IGNsYXNzTmFtZT17Y2VudGVyID8gJ3NlY3Rpb24taW50cm8gY2VudGVyZWQnIDogJ3NlY3Rpb24taW50cm8nfT48c3BhbiBjbGFzc05hbWU9XCJleWVicm93XCI+e2V5ZWJyb3d9PC9zcGFuPjxoMj57dGl0bGV9PC9oMj57Y29weSAmJiA8cD57Y29weX08L3A+fTwvZGl2PlxufVxuXG5mdW5jdGlvbiBIZXJvKHsgb25QaWNrIH06IHsgb25QaWNrOiAoY2hvaWNlOiBDaG9pY2UpID0+IHZvaWQgfSkge1xuICBjb25zdCBwaWNrU2VydmljZSA9IChjaG9pY2U6IENob2ljZSkgPT4ge1xuICAgIG9uUGljayhjaG9pY2UpXG4gICAgcmVxdWVzdEFuaW1hdGlvbkZyYW1lKCgpID0+IChkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcjZmluZC1zZXJ2aWNlIC5maW5kZXItb3B0aW9uLnNlbGVjdGVkJykgYXMgSFRNTEVsZW1lbnQgfCBudWxsKT8uZm9jdXMoeyBwcmV2ZW50U2Nyb2xsOiB0cnVlIH0pKVxuICB9XG4gIGNvbnN0IGxhYmVsczogeyBuYW1lOiBzdHJpbmc7IGNob2ljZTogQ2hvaWNlIH1bXSA9IFtcbiAgICB7IG5hbWU6ICdUcmFuc2xhdGlvbicsIGNob2ljZTogJ0RvY3VtZW50JyB9LFxuICAgIHsgbmFtZTogJ0ludGVycHJldGF0aW9uJywgY2hvaWNlOiAnTGl2ZSBFdmVudCcgfSxcbiAgICB7IG5hbWU6ICdMb2NhbGl6YXRpb24nLCBjaG9pY2U6ICdXZWJzaXRlJyB9LFxuICBdXG4gIHJldHVybiA8c2VjdGlvbiBpZD1cInRvcFwiIGNsYXNzTmFtZT1cImhlcm9cIj48ZGl2IGNsYXNzTmFtZT1cImNvbnRhaW5lciBoZXJvLWdyaWRcIj48ZGl2IGNsYXNzTmFtZT1cImhlcm8tY29weVwiPjxoMT5FdmVyeSB3b3JkPGJyIC8+b3BlbnMgYSA8ZW0+Y29ubmVjdGlvbi48L2VtPjwvaDE+PHA+UHJvZmVzc2lvbmFsIHRyYW5zbGF0aW9uLCBpbnRlcnByZXRhdGlvbiBhbmQgbG9jYWxpemF0aW9uIGZvciBwZW9wbGUgYW5kIG9yZ2FuaXNhdGlvbnMgYWNyb3NzIFVnYW5kYS48L3A+PGRpdiBjbGFzc05hbWU9XCJoZXJvLWFjdGlvbnNcIj48YSBjbGFzc05hbWU9XCJidXR0b24gYnV0dG9uLXJlZFwiIGhyZWY9XCIjY29udGFjdFwiPlJlcXVlc3QgYSBRdW90ZSA8QXJyb3dSaWdodCBzaXplPXsyMH0gLz48L2E+PGEgY2xhc3NOYW1lPVwiYnV0dG9uIGJ1dHRvbi1vdXRsaW5lXCIgaHJlZj1cIiNzZXJ2aWNlc1wiPkV4cGxvcmUgU2VydmljZXMgPEFycm93UmlnaHQgc2l6ZT17MjB9IC8+PC9hPjwvZGl2PjwvZGl2PjxkaXYgY2xhc3NOYW1lPVwiaGVyby12aXN1YWxcIj48ZGl2IGNsYXNzTmFtZT1cImhlcm8tcGVhY2hcIiBhcmlhLWhpZGRlbj1cInRydWVcIiAvPjxkaXYgY2xhc3NOYW1lPVwiaGVyby1yaW5nc1wiIGFyaWEtaGlkZGVuPVwidHJ1ZVwiIC8+PGRpdiBjbGFzc05hbWU9XCJoZXJvLXBob3RvXCI+PFBpY3R1cmUgbmFtZT1cImhlcm9cIiBhbHQ9XCJJbGx1c3RyYXRpdmUgc2NlbmUgb2YgdHdvIHBlb3BsZSBkaXNjdXNzaW5nIGEgZG9jdW1lbnRcIiBlYWdlciAvPjwvZGl2PjxkaXYgY2xhc3NOYW1lPVwiaGVyby1pbnNldFwiPjxQaWN0dXJlIG5hbWU9XCJkb2N1bWVudFwiIGFsdD1cIklsbHVzdHJhdGl2ZSBjbG9zZS11cCBvZiBhIGRvY3VtZW50IGJlaW5nIHJldmlld2VkXCIgLz48L2Rpdj48ZGl2IGNsYXNzTmFtZT1cImhlcm8tc2VydmljZS1sYWJlbHNcIiBhcmlhLWxhYmVsPVwiRXhwbG9yZSBhIHNlcnZpY2VcIj57bGFiZWxzLm1hcCgoeyBuYW1lLCBjaG9pY2UgfSkgPT4gPGEga2V5PXtuYW1lfSBocmVmPVwiI2ZpbmQtc2VydmljZVwiIG9uQ2xpY2s9eygpID0+IHBpY2tTZXJ2aWNlKGNob2ljZSl9PntuYW1lfTwvYT4pfTwvZGl2PjwvZGl2PjwvZGl2PjxkaXYgY2xhc3NOYW1lPVwiY29udGFpbmVyIGhlcm8tcHJvb2ZcIj48c3Bhbj5UcnVzdGVkIGJ5IG9yZ2FuaXNhdGlvbnMgaW4gVWdhbmRhPC9zcGFuPjxkaXY+PHN0cm9uZz5BRkFBUzwvc3Ryb25nPjxpIC8+PHN0cm9uZz5VZ2FuZGEgTGF3IFNvY2lldHk8L3N0cm9uZz48aSAvPjxzdHJvbmc+RkhJIDM2MDwvc3Ryb25nPjwvZGl2PjwvZGl2Pjwvc2VjdGlvbj5cbn1cblxuZnVuY3Rpb24gU2VydmljZXMoeyBvblBpY2sgfTogeyBvblBpY2s6IChjaG9pY2U6IENob2ljZSkgPT4gdm9pZCB9KSB7XG4gIHJldHVybiA8c2VjdGlvbiBpZD1cInNlcnZpY2VzXCIgY2xhc3NOYW1lPVwic2VjdGlvbiBzZXJ2aWNlcy1zZWN0aW9uXCI+PGRpdiBjbGFzc05hbWU9XCJjb250YWluZXJcIj48U2VjdGlvbkludHJvIGV5ZWJyb3c9XCJXaGF0IHdlIGRvXCIgdGl0bGU9XCJMYW5ndWFnZSBzdXBwb3J0IGZvciBldmVyeSBtZXNzYWdlXCIgY29weT1cIlRoZSByaWdodCBsYW5ndWFnZSBzZXJ2aWNlIGhlbHBzIHlvdXIgbWVzc2FnZSByZWFjaCBwZW9wbGUgY2xlYXJseSwgd2hlcmV2ZXIgdGhlIGNvbnZlcnNhdGlvbiBiZWdpbnMuXCIgLz48ZGl2IGNsYXNzTmFtZT1cInNlcnZpY2VzLXNob3djYXNlXCI+PGRpdiBjbGFzc05hbWU9XCJzZXJ2aWNlcy1waG90b1wiPjxQaWN0dXJlIG5hbWU9XCJzZXJ2aWNlc1wiIGFsdD1cIklsbHVzdHJhdGl2ZSBzY2VuZSBvZiB0d28gd29tZW4gZGlzY3Vzc2luZyBhIGRvY3VtZW50XCIgLz48L2Rpdj48ZGl2IGNsYXNzTmFtZT1cInNlcnZpY2VzLWxpc3RcIj57c2VydmljZXMubWFwKCh7IG5hbWUsIGNvcHksIGNob2ljZSB9KSA9PiA8YSBjbGFzc05hbWU9XCJzZXJ2aWNlLXJvd1wiIGtleT17bmFtZX0gaHJlZj17Y2hvaWNlID8gJyNmaW5kLXNlcnZpY2UnIDogJyNjb250YWN0J30gb25DbGljaz17KCkgPT4gY2hvaWNlICYmIG9uUGljayhjaG9pY2UpfT48c3BhbiBjbGFzc05hbWU9XCJzZXJ2aWNlLXJvdy1jb3B5XCI+PGgzPntuYW1lfTwvaDM+PHA+e2NvcHl9PC9wPjwvc3Bhbj48QXJyb3dSaWdodCBjbGFzc05hbWU9XCJzZXJ2aWNlLXJvdy1hcnJvd1wiIHNpemU9ezIxfSBhcmlhLWhpZGRlbj1cInRydWVcIiAvPjwvYT4pfTwvZGl2PjwvZGl2PjwvZGl2Pjwvc2VjdGlvbj5cbn1cblxuZnVuY3Rpb24gU2VydmljZUZpbmRlcih7IGNob2ljZSwgc2V0Q2hvaWNlIH06IHsgY2hvaWNlOiBDaG9pY2U7IHNldENob2ljZTogKGNob2ljZTogQ2hvaWNlKSA9PiB2b2lkIH0pIHtcbiAgY29uc3QgcmVzdWx0ID0gZmluZGVyW2Nob2ljZV1cbiAgY29uc3QgUmVzdWx0SWNvbiA9IHJlc3VsdC5pY29uXG4gIHJldHVybiA8c2VjdGlvbiBpZD1cImZpbmQtc2VydmljZVwiIGNsYXNzTmFtZT1cInNlY3Rpb24gZmluZGVyLXNlY3Rpb25cIj48ZGl2IGNsYXNzTmFtZT1cImNvbnRhaW5lclwiPjxkaXYgY2xhc3NOYW1lPVwiZmluZGVyLWhlYWRcIj48c3BhbiBjbGFzc05hbWU9XCJleWVicm93IGxpZ2h0XCI+RmluZCB5b3VyIHNlcnZpY2U8L3NwYW4+PGgyPldoYXQgZG8geW91IG5lZWQgdG8gPGVtPmNvbW11bmljYXRlPzwvZW0+PC9oMj48cD5DaG9vc2Ugd2hhdCB5b3XigJlyZSB3b3JraW5nIHdpdGggYW5kIHNlZSBob3cgd2UgY2FuIGhlbHAuPC9wPjwvZGl2PjxkaXYgY2xhc3NOYW1lPVwiZmluZGVyLW9wdGlvbnNcIiByb2xlPVwiZ3JvdXBcIiBhcmlhLWxhYmVsPVwiQ2hvb3NlIGEgY29tbXVuaWNhdGlvbiBuZWVkXCI+eyhPYmplY3Qua2V5cyhmaW5kZXIpIGFzIENob2ljZVtdKS5tYXAoaXRlbSA9PiB7IGNvbnN0IEljb24gPSBmaW5kZXJbaXRlbV0uaWNvbjsgcmV0dXJuIDxidXR0b24ga2V5PXtpdGVtfSB0eXBlPVwiYnV0dG9uXCIgY2xhc3NOYW1lPXtjaG9pY2UgPT09IGl0ZW0gPyAnZmluZGVyLW9wdGlvbiBzZWxlY3RlZCcgOiAnZmluZGVyLW9wdGlvbid9IGFyaWEtcHJlc3NlZD17Y2hvaWNlID09PSBpdGVtfSBvbkNsaWNrPXsoKSA9PiBzZXRDaG9pY2UoaXRlbSl9PjxJY29uIHNpemU9ezMxfSBzdHJva2VXaWR0aD17MS43fSAvPjxzcGFuPntpdGVtfTwvc3Bhbj48c3BhbiBjbGFzc05hbWU9XCJvcHRpb24tY2hlY2tcIj48Q2hlY2sgc2l6ZT17MTN9IC8+PC9zcGFuPjwvYnV0dG9uPiB9KX08L2Rpdj48ZGl2IGNsYXNzTmFtZT1cImZpbmRlci1yZXN1bHRcIiBhcmlhLWxpdmU9XCJwb2xpdGVcIj48ZGl2IGNsYXNzTmFtZT1cInJlc3VsdC1pY29uXCI+PFJlc3VsdEljb24gc2l6ZT17MzR9IHN0cm9rZVdpZHRoPXsxLjZ9IC8+PC9kaXY+PGRpdj48c3BhbiBjbGFzc05hbWU9XCJyZXN1bHQtbGFiZWxcIj5BIHNlcnZpY2UgdG8gZXhwbG9yZSDCtyB7cmVzdWx0LnNlcnZpY2V9PC9zcGFuPjxoMz57cmVzdWx0LnRpdGxlfTwvaDM+PHA+e3Jlc3VsdC5kZXNjcmlwdGlvbn08L3A+PC9kaXY+PGEgY2xhc3NOYW1lPVwiYnV0dG9uIGJ1dHRvbi1yZWRcIiBocmVmPVwiI2NvbnRhY3RcIj5SZXF1ZXN0IGEgUXVvdGUgPEFycm93UmlnaHQgc2l6ZT17MTd9IC8+PC9hPjwvZGl2PjwvZGl2Pjwvc2VjdGlvbj5cbn1cblxuZnVuY3Rpb24gTGFuZ3VhZ2VzU2VjdGlvbigpIHtcbiAgcmV0dXJuIDxzZWN0aW9uIGlkPVwibGFuZ3VhZ2VzXCIgY2xhc3NOYW1lPVwic2VjdGlvbiBsYW5ndWFnZXMtc2VjdGlvblwiPjxkaXYgY2xhc3NOYW1lPVwiY29udGFpbmVyXCI+PGRpdiBjbGFzc05hbWU9XCJzcGxpdC1ncmlkXCI+PGRpdiBjbGFzc05hbWU9XCJzcGxpdC1jb3B5XCI+PFNlY3Rpb25JbnRybyBleWVicm93PVwiTGFuZ3VhZ2UgZXhwZXJ0aXNlXCIgdGl0bGU9XCJSb290ZWQgaW4gVWdhbmRhLiBDb25uZWN0ZWQgdGhyb3VnaCBsYW5ndWFnZS5cIiBjb3B5PVwiTG9jYWwgbGFuZ3VhZ2Uga25vd2xlZGdlIGFuZCBjdWx0dXJhbCBjb250ZXh0IGhlbHAgbWFrZSBjb21tdW5pY2F0aW9uIG1vcmUgbWVhbmluZ2Z1bC4gVGVsbCB1cyB3aG8geW91IG5lZWQgdG8gcmVhY2ggYW5kIHdl4oCZbGwgZGlzY3VzcyB0aGUgcmlnaHQgYXBwcm9hY2guXCIgLz48cCBjbGFzc05hbWU9XCJleGFtcGxlcy1sYWJlbFwiPkV4YW1wbGVzIG9mIGxhbmd1YWdlcyBmZWF0dXJlZCBieSBEZW1hPC9wPjxkaXYgY2xhc3NOYW1lPVwibGFuZ3VhZ2UtdGFnc1wiPjxzcGFuPkx1Z2FuZGE8L3NwYW4+PHNwYW4+UnVueWFua29yZTwvc3Bhbj48c3Bhbj5BY2hvbGk8L3NwYW4+PHNwYW4+THVzb2dhPC9zcGFuPjwvZGl2PjxhIGNsYXNzTmFtZT1cInRleHQtbGlua1wiIGhyZWY9XCIjY29udGFjdFwiPkFzayBhYm91dCB5b3VyIGxhbmd1YWdlIDxBcnJvd1JpZ2h0IHNpemU9ezE4fSAvPjwvYT48L2Rpdj48ZGl2IGNsYXNzTmFtZT1cImxhbmd1YWdlLXZpc3VhbFwiPjxmaWd1cmUgY2xhc3NOYW1lPVwibGFuZ3VhZ2UtcGhvdG9cIj48UGljdHVyZSBuYW1lPVwia2FtcGFsYVwiIGFsdD1cIlBhbm9yYW1pYyB2aWV3IGFjcm9zcyBLYW1wYWxhLCBVZ2FuZGFcIiAvPjxmaWdjYXB0aW9uPjxzcGFuPkthbXBhbGEsIFVnYW5kYTwvc3Bhbj48c3Bhbj5QaG90bzogPGEgaHJlZj1cImh0dHBzOi8vY29tbW9ucy53aWtpbWVkaWEub3JnL3dpa2kvRmlsZTpWaWV3X29mX0thbXBhbGFfY2l0eV8xLmpwZ1wiIHRhcmdldD1cIl9ibGFua1wiIHJlbD1cIm5vb3BlbmVyIG5vcmVmZXJyZXJcIj5Eci4gUy1tb248L2E+IMK3IDxhIGhyZWY9XCJodHRwczovL2NyZWF0aXZlY29tbW9ucy5vcmcvbGljZW5zZXMvYnkvNC4wL1wiIHRhcmdldD1cIl9ibGFua1wiIHJlbD1cIm5vb3BlbmVyIG5vcmVmZXJyZXJcIj5DQyBCWSA0LjA8L2E+PC9zcGFuPjwvZmlnY2FwdGlvbj48L2ZpZ3VyZT48ZGl2IGNsYXNzTmFtZT1cInVnYW5kYS1tYXBcIj48aW1nIHNyYz1cIi9hc3NldHMvdWdhbmRhLW91dGxpbmUuc3ZnXCIgYWx0PVwiT3V0bGluZSBtYXAgb2YgVWdhbmRhXCIgd2lkdGg9XCIzMjBcIiBoZWlnaHQ9XCIzNjBcIiAvPjxzcGFuPlJvb3RlZCBpbiBVZ2FuZGE8L3NwYW4+PC9kaXY+PC9kaXY+PC9kaXY+PExhbmd1YWdlRGlyZWN0b3J5IC8+PC9kaXY+PC9zZWN0aW9uPlxufVxuXG5mdW5jdGlvbiBBcHByb2FjaCgpIHtcbiAgY29uc3Qgc3RlcHMgPSBbXG4gICAgeyBudW1iZXI6ICcwMScsIHRpdGxlOiAnU2hhcmUgeW91ciBicmllZicsIGNvcHk6ICdUZWxsIHVzIHdoYXQgeW91IG5lZWQsIHdobyBpdCBpcyBmb3IgYW5kIHRoZSBsYW5ndWFnZXMgaW52b2x2ZWQuJywgaWNvbjogRmlsZVBlbkxpbmUgfSxcbiAgICB7IG51bWJlcjogJzAyJywgdGl0bGU6ICdBZ3JlZSB0aGUgYXBwcm9hY2gnLCBjb3B5OiAnV2XigJlsbCBkaXNjdXNzIHRoZSBzZXJ2aWNlIGFuZCBzY29wZSB0aGF0IGZpdCB5b3VyIHJlcXVlc3QuJywgaWNvbjogTGlnaHRidWxiIH0sXG4gICAgeyBudW1iZXI6ICcwMycsIHRpdGxlOiAnUmVjZWl2ZSB5b3VyIHdvcmsnLCBjb3B5OiAnR2V0IHlvdXIgY29tcGxldGVkIGxhbmd1YWdlIHdvcmsgaW4gdGhlIGFncmVlZCBmb3JtYXQuJywgaWNvbjogQ2xpcGJvYXJkQ2hlY2sgfSxcbiAgXVxuICByZXR1cm4gPHNlY3Rpb24gaWQ9XCJhcHByb2FjaFwiIGNsYXNzTmFtZT1cInNlY3Rpb24gYXBwcm9hY2gtc2VjdGlvblwiPjxkaXYgY2xhc3NOYW1lPVwiY29udGFpbmVyIGFwcHJvYWNoLWxheW91dFwiPjxTZWN0aW9uSW50cm8gZXllYnJvdz1cIkhvdyBpdCB3b3Jrc1wiIHRpdGxlPVwiQSBjbGVhciBwYXRoIGZyb20gcmVxdWVzdCB0byByZXN1bHRcIiBjb3B5PVwiVGVsbCB1cyB3aGF0IHlvdSBuZWVkLiBXZeKAmWxsIGhlbHAgc2hhcGUgdGhlIHJpZ2h0IGxhbmd1YWdlIHNvbHV0aW9uLlwiIC8+PGRpdiBjbGFzc05hbWU9XCJzdGVwc1wiPntzdGVwcy5tYXAoKHsgbnVtYmVyLCB0aXRsZSwgY29weSwgaWNvbjogSWNvbiB9KSA9PiA8ZGl2IGNsYXNzTmFtZT1cInN0ZXBcIiBrZXk9e251bWJlcn0+PHNwYW4gY2xhc3NOYW1lPVwic3RlcC1udW1iZXJcIj57bnVtYmVyfTwvc3Bhbj48SWNvbiBjbGFzc05hbWU9XCJzdGVwLWljb25cIiBzaXplPXszNX0gc3Ryb2tlV2lkdGg9ezEuN30gLz48ZGl2PjxoMz57dGl0bGV9PC9oMz48cD57Y29weX08L3A+PC9kaXY+PC9kaXY+KX08L2Rpdj48ZGl2IGNsYXNzTmFtZT1cImFwcHJvYWNoLXBob3RvXCI+PFBpY3R1cmUgbmFtZT1cImRvY3VtZW50XCIgYWx0PVwiSWxsdXN0cmF0aXZlIHNjZW5lIG9mIHBlb3BsZSByZXZpZXdpbmcgYSBkb2N1bWVudCB0b2dldGhlclwiIC8+PC9kaXY+PC9kaXY+PC9zZWN0aW9uPlxufVxuXG5mdW5jdGlvbiBUZWFtKCkge1xuICBjb25zdCBtZW1iZXJzID0gW1xuICAgIHsgbmFtZTogJ0RyLiBLYXdhbHlhIERlbycsIGltYWdlOiAna2F3YWx5YScsIGFsdDogJ1BvcnRyYWl0IG9mIERyLiBLYXdhbHlhIERlbycgfSxcbiAgICB7IG5hbWU6ICdEci4gTWVkYWRpIFNzZW50YW5kYScsIGltYWdlOiAnbWVkYWRpJywgYWx0OiAnUG9ydHJhaXQgb2YgRHIuIE1lZGFkaSBTc2VudGFuZGEnIH0sXG4gICAgeyBuYW1lOiAnTXMuIFdpbm5pZSBOYWthdHVkZGRlJywgaW1hZ2U6ICd3aW5uaWUnLCBhbHQ6ICdQb3J0cmFpdCBvZiBNcy4gV2lubmllIE5ha2F0dWRkZGUnLCByb2xlOiAnQWRtaW5pc3RyYXRpdmUgQXNzaXN0YW50JyB9LFxuICBdXG4gIHJldHVybiA8c2VjdGlvbiBpZD1cInRlYW1cIiBjbGFzc05hbWU9XCJzZWN0aW9uIHRlYW0tc2VjdGlvblwiPjxkaXYgY2xhc3NOYW1lPVwiY29udGFpbmVyXCI+PGRpdiBjbGFzc05hbWU9XCJ0ZWFtLWhlYWRpbmdcIj48U2VjdGlvbkludHJvIGV5ZWJyb3c9XCJPdXIgdGVhbVwiIHRpdGxlPVwiUGVvcGxlIHdobyBrbm93IHRoZSBwb3dlciBvZiBsYW5ndWFnZVwiIGNvcHk9XCJNZWV0IHRoZSBwZW9wbGUgYmVoaW5kIERlbWEgTGFuZ3VhZ2UgU29sdXRpb25zLlwiIC8+PC9kaXY+PGRpdiBjbGFzc05hbWU9XCJ0ZWFtLWdyaWRcIj57bWVtYmVycy5tYXAobWVtYmVyID0+IDxhcnRpY2xlIGNsYXNzTmFtZT1cInRlYW0tY2FyZFwiIGtleT17bWVtYmVyLm5hbWV9PjxkaXYgY2xhc3NOYW1lPVwicG9ydHJhaXRcIj48UGljdHVyZSBuYW1lPXttZW1iZXIuaW1hZ2V9IGFsdD17bWVtYmVyLmFsdH0gLz48L2Rpdj48ZGl2IGNsYXNzTmFtZT1cInRlYW0tY2FyZC1ib2R5XCI+PGgzPnttZW1iZXIubmFtZX08L2gzPnttZW1iZXIucm9sZSAmJiA8cD57bWVtYmVyLnJvbGV9PC9wPn08L2Rpdj48L2FydGljbGU+KX08L2Rpdj48L2Rpdj48L3NlY3Rpb24+XG59XG5cbmZ1bmN0aW9uIENsaWVudHMoKSB7XG4gIHJldHVybiA8c2VjdGlvbiBpZD1cImNsaWVudHNcIiBjbGFzc05hbWU9XCJzZWN0aW9uIGNsaWVudHMtc2VjdGlvblwiPjxkaXYgY2xhc3NOYW1lPVwiY29udGFpbmVyXCI+PFNlY3Rpb25JbnRybyBleWVicm93PVwiT3VyIGNsaWVudHNcIiB0aXRsZT1cIlRydXN0ZWQgZm9yIG1lYW5pbmdmdWwgd29ya1wiIGNvcHk9XCJPcmdhbmlzYXRpb25zIHRoYXQgaGF2ZSB0dXJuZWQgdG8gRGVtYSBmb3IgbGFuZ3VhZ2Ugc3VwcG9ydC5cIiBjZW50ZXIgLz48ZGl2IGNsYXNzTmFtZT1cImNsaWVudHMtZ3JpZFwiPntbJ0FGQUFTJywgJ1BlbmFsIFJlZm9ybSBJbnRlcm5hdGlvbmFsJywgJ01hcmllIFN0b3BlcyBVZ2FuZGEnLCAnSnVzdGljZSBDZW50cmVzIFVnYW5kYScsICdVZ2FuZGEgTGF3IFNvY2lldHknLCAnRkhJIDM2MCddLm1hcChuYW1lID0+IDxkaXYgY2xhc3NOYW1lPVwiY2xpZW50LW5hbWVcIiBrZXk9e25hbWV9PntuYW1lfTwvZGl2Pil9PC9kaXY+PHAgY2xhc3NOYW1lPVwiY2xpZW50cy1ub3RlXCI+U2VsZWN0ZWQgY2xpZW50cyBsaXN0ZWQgYnkgRGVtYS48L3A+PC9kaXY+PC9zZWN0aW9uPlxufVxuXG5mdW5jdGlvbiBDb250YWN0KCkge1xuICByZXR1cm4gPHNlY3Rpb24gaWQ9XCJjb250YWN0XCIgY2xhc3NOYW1lPVwiY29udGFjdC1zZWN0aW9uXCI+PGRpdiBjbGFzc05hbWU9XCJjb250YWluZXJcIj48ZGl2IGNsYXNzTmFtZT1cImNvbnRhY3QtcGFuZWxcIj48c3BhbiBjbGFzc05hbWU9XCJleWVicm93IGxpZ2h0XCI+TGV04oCZcyBjb25uZWN0PC9zcGFuPjxoMj5MZXTigJlzIGJyaW5nIHlvdXIgbWVzc2FnZTxiciAvPnRvIG1vcmUgcGVvcGxlLjwvaDI+PHA+VGVsbCB1cyBhYm91dCB5b3VyIHByb2plY3QgYW5kIHdl4oCZbGwgaGVscCB5b3UgZmluZCB0aGUgcmlnaHQgbGFuZ3VhZ2Ugc2VydmljZS48L3A+PGRpdiBjbGFzc05hbWU9XCJjb250YWN0LWFjdGlvbnNcIj48YSBjbGFzc05hbWU9XCJidXR0b24gYnV0dG9uLXJlZFwiIGhyZWY9e3F1b3RlfT5SZXF1ZXN0IGEgUXVvdGUgPEFycm93UmlnaHQgc2l6ZT17MjB9IC8+PC9hPjxhIGNsYXNzTmFtZT1cImJ1dHRvbiBidXR0b24tZ2hvc3RcIiBocmVmPVwibWFpbHRvOmluZm9AZGVtYWxhbmd1YWdlcy5jb21cIj5FbWFpbCBEZW1hIDxNYWlsIHNpemU9ezE4fSAvPjwvYT48L2Rpdj48L2Rpdj48L2Rpdj48L3NlY3Rpb24+XG59XG5cbmZ1bmN0aW9uIEZvb3RlcigpIHtcbiAgcmV0dXJuIDxmb290ZXIgY2xhc3NOYW1lPVwiZm9vdGVyXCI+PGRpdiBjbGFzc05hbWU9XCJjb250YWluZXIgZm9vdGVyLWdyaWRcIj48ZGl2IGNsYXNzTmFtZT1cImZvb3Rlci1hYm91dFwiPjxCcmFuZCAvPjxwPlRyYW5zbGF0aW9uIGFuZCBpbnRlcnByZXRhdGlvbiB0aGF0IGhlbHAgY29tbXVuaXRpZXMgYW5kIG9yZ2FuaXNhdGlvbnMgY29tbXVuaWNhdGUgY2xlYXJseSBpbiBVZ2FuZGEuPC9wPjwvZGl2PjxkaXY+PGgzPkV4cGxvcmU8L2gzPjxhIGhyZWY9XCIjc2VydmljZXNcIj5TZXJ2aWNlczwvYT48YSBocmVmPVwiI2ZpbmQtc2VydmljZVwiPkZpbmQgYSBzZXJ2aWNlPC9hPjxhIGhyZWY9XCIjbGFuZ3VhZ2VzXCI+TGFuZ3VhZ2VzPC9hPjxhIGhyZWY9XCIjYXBwcm9hY2hcIj5PdXIgYXBwcm9hY2g8L2E+PC9kaXY+PGRpdj48aDM+QWJvdXQ8L2gzPjxhIGhyZWY9XCIjdGVhbVwiPk91ciB0ZWFtPC9hPjxhIGhyZWY9XCIjY2xpZW50c1wiPk91ciBjbGllbnRzPC9hPjxhIGhyZWY9XCIjY29udGFjdFwiPkNvbnRhY3Q8L2E+PC9kaXY+PGRpdj48aDM+R2V0IGluIHRvdWNoPC9oMz48YSBocmVmPVwibWFpbHRvOmluZm9AZGVtYWxhbmd1YWdlcy5jb21cIj48TWFpbCBzaXplPXsxNn0gLz4gaW5mb0BkZW1hbGFuZ3VhZ2VzLmNvbTwvYT48YSBocmVmPVwidGVsOisyNTY3MDI0NDI0NzBcIj48UGhvbmUgc2l6ZT17MTZ9IC8+ICsyNTYgNzAyIDQ0MiA0NzA8L2E+PHNwYW4gY2xhc3NOYW1lPVwiZm9vdGVyLWxvY2F0aW9uXCI+PE1hcFBpbiBzaXplPXsxNn0gLz4gS2FtcGFsYSwgVWdhbmRhPC9zcGFuPjwvZGl2PjwvZGl2PjxkaXYgY2xhc3NOYW1lPVwiY29udGFpbmVyIGZvb3Rlci1ib3R0b21cIj48c3Bhbj7CqSB7bmV3IERhdGUoKS5nZXRGdWxsWWVhcigpfSBEZW1hIExhbmd1YWdlIFNvbHV0aW9ucy4gQWxsIHJpZ2h0cyByZXNlcnZlZC48L3NwYW4+PGEgaHJlZj1cIiN0b3BcIj5CYWNrIHRvIHRvcCA8Q2hldnJvbkRvd24gc2l6ZT17MTR9IC8+PC9hPjwvZGl2PjwvZm9vdGVyPlxufVxuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBBcHAoKSB7XG4gIGNvbnN0IFtjaG9pY2UsIHNldENob2ljZV0gPSB1c2VTdGF0ZTxDaG9pY2U+KCdEb2N1bWVudCcpXG4gIHJldHVybiA8PjxhIGNsYXNzTmFtZT1cInNraXAtbGlua1wiIGhyZWY9XCIjbWFpblwiPlNraXAgdG8gY29udGVudDwvYT48SGVhZGVyIC8+PG1haW4gaWQ9XCJtYWluXCI+PEhlcm8gb25QaWNrPXtzZXRDaG9pY2V9IC8+PFNlcnZpY2VzIG9uUGljaz17c2V0Q2hvaWNlfSAvPjxTZXJ2aWNlRmluZGVyIGNob2ljZT17Y2hvaWNlfSBzZXRDaG9pY2U9e3NldENob2ljZX0gLz48TGFuZ3VhZ2VzU2VjdGlvbiAvPjxBcHByb2FjaCAvPjxUZWFtIC8+PENsaWVudHMgLz48Q29udGFjdCAvPjwvbWFpbj48Rm9vdGVyIC8+PC8+XG59XG4iXSwibWFwcGluZ3MiOiJBQTBCUyxTQXdGQSxVQXhGQTtBQTFCVCxTQUFTLFdBQVcsZ0JBQWdCO0FBQ3BDLFNBQVMsWUFBWSxZQUFZLE9BQU8sYUFBYSxnQkFBZ0IsYUFBYSxVQUFVLFdBQVcsTUFBTSxRQUFRLE1BQU0sU0FBUyxPQUFPLE9BQU8sU0FBUztBQUUzSixPQUFPLHVCQUF1QjtBQUU5QixNQUFNLFFBQVEsQ0FBQyxNQUFjLE9BQU8sU0FBUyxXQUFXLElBQUksSUFBSSxJQUFJO0FBQ3BFLE1BQU0sUUFBUTtBQUdkLE1BQU0sU0FBb0c7QUFBQSxFQUN4RyxVQUFVLEVBQUUsTUFBTSxVQUFVLFNBQVMsZUFBZSxPQUFPLDZCQUE2QixhQUFhLHdGQUF3RjtBQUFBLEVBQzdMLGNBQWMsRUFBRSxNQUFNLE9BQU8sU0FBUyxrQkFBa0IsT0FBTyx5Q0FBeUMsYUFBYSxrRkFBa0Y7QUFBQSxFQUN2TSxXQUFXLEVBQUUsTUFBTSxZQUFZLFNBQVMsaUJBQWlCLE9BQU8sZ0NBQWdDLGFBQWEsMkRBQTJEO0FBQUEsRUFDeEssU0FBUyxFQUFFLE1BQU0sU0FBUyxTQUFTLGdCQUFnQixPQUFPLG9DQUFvQyxhQUFhLHlFQUF5RTtBQUN0TDtBQUVBLE1BQU0sV0FBOEQ7QUFBQSxFQUNsRSxFQUFFLE1BQU0sZUFBZSxNQUFNLHNGQUFzRixRQUFRLFdBQVc7QUFBQSxFQUN0SSxFQUFFLE1BQU0sa0JBQWtCLE1BQU0sOEVBQThFLFFBQVEsYUFBYTtBQUFBLEVBQ25JLEVBQUUsTUFBTSxnQkFBZ0IsTUFBTSxxRUFBcUUsUUFBUSxVQUFVO0FBQUEsRUFDckgsRUFBRSxNQUFNLGlCQUFpQixNQUFNLHFFQUFxRSxR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
