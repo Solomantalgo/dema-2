@@ -25,6 +25,15 @@ async function captureSection(page, selector, path, width) {
   })
   await page.screenshot({ path, fullPage: true, clip: { x: 0, y: box.y, width, height: box.height } })
 }
+async function captureLanguageIntro(page, width) {
+  const box = await page.evaluate(() => {
+    const section = document.querySelector('#languages').getBoundingClientRect()
+    const directory = document.querySelector('#language-directory').getBoundingClientRect()
+    const y = Math.floor(section.top + scrollY)
+    return { y, height: Math.ceil(directory.top + scrollY + 240 - y) }
+  })
+  await page.screenshot({ path: `qa/languages-visual-${width}.png`, fullPage: true, clip: { x: 0, y: box.y, width, height: box.height } })
+}
 
 for (const width of [1440, 1024, 768, 390, 320, 280]) {
   const page = await context.newPage()
@@ -32,10 +41,43 @@ for (const width of [1440, 1024, 768, 390, 320, 280]) {
   await page.goto(baseUrl, { waitUntil: 'networkidle' })
   await page.locator('img[loading="lazy"]').evaluateAll(images => images.forEach(image => { image.loading = 'eager' }))
   await page.waitForFunction(() => [...document.images].every(img => img.complete))
+  const header = page.locator('.site-header')
+  const brand = header.locator('.brand-header')
+  check(await brand.count() === 1, `${width}: header contrast-tab link missing`)
+  check(await brand.getAttribute('href') === '#top', `${width}: header brand destination changed`)
+  check(await brand.getAttribute('aria-label') === 'Dema Language Solutions, home', `${width}: header brand accessible name changed`)
+  check(await brand.locator('img').getAttribute('src') === '/assets/logo.png', `${width}: header uses a different logo`)
+  check(await brand.locator('.brand-wordmark').innerText() === 'Language\nSolutions', `${width}: header wordmark is not two lines`)
+  check(await page.locator('.footer .brand-header').count() === 0, `${width}: footer brand was changed to the header tab`)
+  const brandLayout = await page.evaluate(() => {
+    const brand = document.querySelector('.brand-header')
+    const mark = brand.querySelector('img')
+    const panel = brand.querySelector('.brand-wordmark')
+    const neighbor = document.querySelector(innerWidth <= 780 ? '.menu-toggle' : '.nav')
+    const b = brand.getBoundingClientRect(), m = mark.getBoundingClientRect(), p = panel.getBoundingClientRect(), n = neighbor.getBoundingClientRect()
+    const style = getComputedStyle(panel)
+    return { brandLeft: b.left, brandRight: b.right, neighborLeft: n.left, markWithinTile: m.left >= b.left && m.right <= p.left && m.top >= b.top && m.bottom <= b.bottom, panelWithinBrand: p.right <= b.right, panelColor: style.color, panelBackground: style.backgroundColor, pageWidth: innerWidth }
+  })
+  check(brandLayout.brandLeft >= 0 && brandLayout.brandRight <= brandLayout.pageWidth && brandLayout.brandRight + 8 <= brandLayout.neighborLeft && brandLayout.markWithinTile && brandLayout.panelWithinBrand, `${width}: header brand collision or clipped logo ${JSON.stringify(brandLayout)}`)
+  check(brandLayout.panelColor === 'rgb(255, 255, 255)' && brandLayout.panelBackground === 'rgb(45, 12, 86)', `${width}: header wordmark contrast changed`)
+  await page.screenshot({ path: `qa/header-${width}.png`, clip: { x: 0, y: 0, width, height: 170 } })
+  await page.evaluate(() => scrollTo(0, 440))
+  await page.waitForTimeout(250)
+  check(await header.evaluate(el => el.classList.contains('is-scrolled')), `${width}: sticky header state missing`)
+  await page.screenshot({ path: `qa/header-scrolled-${width}.png`, clip: { x: 0, y: 0, width, height: 170 } })
+  await brand.focus()
+  await page.keyboard.press('Tab')
+  await page.keyboard.press('Shift+Tab')
+  check(await brand.evaluate(el => document.activeElement === el && getComputedStyle(el).outlineStyle !== 'none'), `${width}: header brand focus is not visible`)
+  await brand.click()
+  check(new URL(page.url()).hash === '#top', `${width}: header brand did not navigate home`)
+  await page.evaluate(() => scrollTo(0, 0))
+  await page.waitForTimeout(250)
   await page.screenshot({ path: `qa/home-${width}.png`, fullPage: true })
   await captureSection(page, '#services', `qa/services-${width}.png`, width)
   await captureSection(page, '#find-service', `qa/finder-${width}.png`, width)
-  await captureSection(page, '#languages .split-grid', `qa/languages-visual-${width}.png`, width)
+  await captureLanguageIntro(page, width)
+  await captureSection(page, '#languages', `qa/languages-${width}.png`, width)
   const heroBottom = await page.locator('.hero').evaluate(element => Math.ceil(element.getBoundingClientRect().bottom + window.scrollY))
   await page.screenshot({ path: `qa/hero-${width}.png`, fullPage: true, clip: { x: 0, y: 0, width, height: heroBottom } })
   const size = await checkOverflow(page, `${width} initial`)
@@ -64,7 +106,17 @@ for (const width of [1440, 1024, 768, 390, 320, 280]) {
   check(await page.locator('.finder-option').count() === 4, `${width}: expected four finder choices`)
   check(await page.locator('.finder-option > svg, .finder-result .result-icon').count() === 0, `${width}: generic finder icons remain`)
   check(await page.locator('.finder-result .button').getAttribute('href') === '#contact', `${width}: finder quote destination changed`)
-  check(await page.locator('.language-photo figcaption a[href="https://creativecommons.org/licenses/by/4.0/"]').count() === 1, `${width}: Kampala licence link missing`)
+  check(await page.locator('.atlas-photo figcaption a[href="https://creativecommons.org/licenses/by/4.0/"]').count() === 1, `${width}: Kampala licence link missing`)
+  check(await page.locator('.atlas-photo figcaption a[href="https://commons.wikimedia.org/wiki/File:View_of_Kampala_city_1.jpg"]').count() === 1, `${width}: Kampala source credit missing`)
+  check(await page.locator('.language-intro .text-link').getAttribute('href') === '#contact', `${width}: language contact action changed`)
+  check(JSON.stringify(await page.locator('.atlas-examples li').allTextContents()) === JSON.stringify(['Luganda', 'Runyankore', 'Acholi', 'Lusoga']), `${width}: atlas examples changed`)
+  check(await page.locator('.atlas-map').getAttribute('src') === '/assets/uganda-outline.svg', `${width}: supplied Uganda outline is missing`)
+  const atlasLayout = await page.evaluate(() => {
+    const bounds = selector => document.querySelector(selector).getBoundingClientRect()
+    const map = bounds('.atlas-map'), examples = bounds('.atlas-examples'), atlas = bounds('.atlas-panel'), photo = bounds('.atlas-photo img'), caption = bounds('.atlas-photo figcaption')
+    return { mapWithinPanel: map.left >= atlas.left && map.right <= atlas.right && map.top >= atlas.top && map.bottom <= atlas.bottom, labelsBelowMap: examples.top >= map.bottom, captionBelowPhoto: caption.top >= photo.bottom, sideBySide: photo.left > atlas.right - 1, stacked: photo.top > atlas.bottom - 1 }
+  })
+  check(atlasLayout.mapWithinPanel && atlasLayout.labelsBelowMap && atlasLayout.captionBelowPhoto && (width > 780 ? atlasLayout.sideBySide : atlasLayout.stacked), `${width}: atlas/photo arrangement is clipped or out of order ${JSON.stringify(atlasLayout)}`)
   for (const [label, result] of [
     ['Translation', 'Translation for documents'],
     ['Interpretation', 'Interpretation for live conversations'],
@@ -79,8 +131,8 @@ for (const width of [1440, 1024, 768, 390, 320, 280]) {
     await checkOverflow(page, `${width} after ${label}`)
   }
   await page.emulateMedia({ reducedMotion: 'reduce' })
-  const reduced = await page.evaluate(() => ({ scroll: getComputedStyle(document.documentElement).scrollBehavior, transition: getComputedStyle(document.querySelector('.hero-actions a')).transitionDuration, finderTransition: getComputedStyle(document.querySelector('.finder-option')).transitionDuration, animation: getComputedStyle(document.querySelector('.hero-copy')).animationName }))
-  check(reduced.scroll === 'auto' && parseFloat(reduced.transition) < .001 && parseFloat(reduced.finderTransition) < .001 && reduced.animation === 'none', `${width}: reduced-motion preference is not honored ${JSON.stringify(reduced)}`)
+  const reduced = await page.evaluate(() => ({ scroll: getComputedStyle(document.documentElement).scrollBehavior, transition: getComputedStyle(document.querySelector('.hero-actions a')).transitionDuration, finderTransition: getComputedStyle(document.querySelector('.finder-option')).transitionDuration, brandTransition: getComputedStyle(document.querySelector('.brand-header')).transitionDuration, animation: getComputedStyle(document.querySelector('.hero-copy')).animationName }))
+  check(reduced.scroll === 'auto' && parseFloat(reduced.transition) < .001 && parseFloat(reduced.finderTransition) < .001 && parseFloat(reduced.brandTransition) < .001 && reduced.animation === 'none', `${width}: reduced-motion preference is not honored ${JSON.stringify(reduced)}`)
   await page.emulateMedia({ reducedMotion: 'no-preference' })
   for (const [label, result] of [
     ['Translation', 'Translation for documents'],
@@ -97,10 +149,14 @@ for (const width of [1440, 1024, 768, 390, 320, 280]) {
   }
   await checkOverflow(page, `${width} after service rows`)
   if (width <= 768) {
+    await page.evaluate(() => scrollTo(0, 0))
+    await page.waitForTimeout(250)
     const menu = page.locator('.menu-toggle')
     await menu.click()
+    await page.waitForTimeout(350)
     check(await menu.getAttribute('aria-expanded') === 'true', 'menu did not open')
     await checkOverflow(page, `${width} open menu`)
+    await page.screenshot({ path: `qa/header-menu-${width}.png`, clip: { x: 0, y: 0, width, height: 530 } })
     await page.keyboard.press('Escape')
     check(await menu.getAttribute('aria-expanded') === 'false', 'Escape did not close menu')
     await menu.click()
@@ -135,6 +191,8 @@ for (const width of [1440, 1024, 768, 390, 320, 280]) {
   for (const id of ['top', 'services', 'find-service', 'languages', 'language-directory', 'approach', 'team', 'clients', 'contact']) {
     check(await page.locator(`#${id}`).count() === 1, `${width}: missing anchor ${id}`)
   }
+  await page.locator('.directory-more').click()
+  await checkOverflow(page, `${width} expanded directory`)
   await query(page, 'Ngakarimojong')
   check((await names(page)).includes('Moroto'), `${width}: punctuation-tolerant search failed`)
   await checkOverflow(page, `${width} search`)

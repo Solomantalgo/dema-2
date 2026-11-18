@@ -82,7 +82,26 @@ function ServiceFinder({ choice, setChoice }: { choice: Choice; setChoice: (choi
 }
 
 function LanguagesSection() {
-  return <section id="languages" className="section languages-section"><div className="container"><div className="split-grid"><div className="split-copy"><SectionIntro eyebrow="Language expertise" title="Rooted in Uganda. Connected through language." copy="Local language knowledge and cultural context help make communication more meaningful. Tell us who you need to reach and we’ll discuss the right approach." /><p className="examples-label">Examples of languages featured by Dema</p><div className="language-tags"><span>Luganda</span><span>Runyankore</span><span>Acholi</span><span>Lusoga</span></div><a className="text-link" href="#contact">Ask about your language <ArrowRight size={18} /></a></div><div className="language-visual"><figure className="language-photo"><Picture name="kampala" alt="Panoramic view across Kampala, Uganda" /><figcaption><span>Kampala, Uganda</span><span>Photo: <a href="https://commons.wikimedia.org/wiki/File:View_of_Kampala_city_1.jpg" target="_blank" rel="noopener noreferrer">Dr. S-mon</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></span></figcaption></figure><div className="uganda-map"><img src="/assets/uganda-outline.svg" alt="Outline map of Uganda" width="320" height="360" /><span>Rooted in Uganda</span></div></div></div><LanguageDirectory /></div></section>
+  return <section id="languages" className="section languages-section"><div className="container">
+    <div className="language-intro">
+      <SectionIntro eyebrow="Language expertise" title="Rooted in Uganda. Connected through language." copy="Local language knowledge and cultural context help make communication more meaningful. Tell us who you need to reach and we’ll discuss the right approach." />
+      <a className="text-link" href="#contact">Ask about your language <ArrowRight size={18} /></a>
+    </div>
+    <div className="language-diptych">
+      <div className="atlas-panel">
+        <img className="atlas-map" src="/assets/uganda-outline.svg" alt="Geographic silhouette of Uganda" width="320" height="360" loading="lazy" />
+        <div className="atlas-examples">
+          <p>Examples of languages featured by Dema</p>
+          <ul>{['Luganda', 'Runyankore', 'Acholi', 'Lusoga'].map(language => <li key={language}>{language}</li>)}</ul>
+        </div>
+      </div>
+      <figure className="atlas-photo">
+        <Picture name="kampala" alt="Panoramic view across Kampala, Uganda" />
+        <figcaption><strong>Kampala, Uganda</strong><span>Photo: <a href="https://commons.wikimedia.org/wiki/File:View_of_Kampala_city_1.jpg" target="_blank" rel="noopener noreferrer">Dr. S-mon</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></span></figcaption>
+      </figure>
+    </div>
+    <LanguageDirectory />
+  </div></section>
 }
 
 function Approach() {

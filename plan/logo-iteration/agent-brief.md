@@ -1,4 +1,6 @@
-# Agent handoff — approved contrast-tab logo area
+# Historical agent handoff — superseded contrast-tab logo area
+
+This brief is retained for design history. The current header direction comes from `plan/directory-iteration/options/02-editorial-cards.png` and is specified in `AGENTS.md` section 17 and `plan/directory-iteration/agent-brief.md`. Do not restore the outlined cream tile, red baseline, or header bottom divider described below.
 
 Read `AGENTS.md`, especially sections 01, 04, 07–08, 12, and 15. The user selected `plan/logo-iteration/options/03-contrast-tab.png`. Current header close-ups are `plan/logo-iteration/current-desktop.png` and `current-mobile.png`. This brief is for implementing the **header brand lockup only**. The planning agent has not changed site code for this decision.
 
