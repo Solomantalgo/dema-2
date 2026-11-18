@@ -1,0 +1,60 @@
+/* Tighter client logo cards on small screens; keep the grid inset from viewport edges. */
+@media (max-width: 780px) {
+  .clients-section#clients > .container.container {
+    width: min(100% - 36px, 1220px) !important;
+    min-width: 0;
+    padding-inline: 0;
+  }
+
+  .clients-section#clients .clients-grid {
+    width: 100%;
+    max-width: 560px;
+    min-width: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .clients-section#clients .client-logo-card {
+    width: 100%;
+    min-width: 0;
+    min-height: 132px;
+    padding: 12px 10px 10px;
+    gap: 8px;
+  }
+
+  .clients-section#clients .client-logo-wrap,
+  .clients-section#clients .client-logo {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: 76px;
+  }
+
+  .clients-section#clients .client-sector {
+    max-width: 100%;
+    font-size: .62rem;
+    line-height: 1.25;
+    letter-spacing: .06em;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 370px) {
+  .clients-section#clients > .container.container {
+    width: min(100% - 28px, 1220px) !important;
+  }
+
+  .clients-section#clients .clients-grid {
+    gap: 10px;
+  }
+
+  .clients-section#clients .client-logo-card {
+    min-height: 124px;
+    padding: 10px 8px 9px;
+  }
+
+  .clients-section#clients .client-logo-wrap,
+  .clients-section#clients .client-logo {
+    height: 70px;
+  }
+}
