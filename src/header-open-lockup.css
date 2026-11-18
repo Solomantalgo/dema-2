@@ -35,3 +35,9 @@
 @media (prefers-reduced-motion: reduce) {
   .site-header { transition: none; }
 }
+
+/* New Dema logo (wider than tall): size by height, keep proportions. */
+.site-header .brand-mark { width: auto; padding-right: 6px; }
+.site-header .brand-mark img, .header-inner .brand img { width: auto !important; height: 60px !important; max-width: 92px; object-fit: contain; }
+.brand img { width: auto; height: 64px; object-fit: contain; }
+@media (max-width: 780px) { .site-header .brand-mark img, .header-inner .brand img { height: 50px !important; max-width: 70px; } }

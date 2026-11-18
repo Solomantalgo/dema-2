@@ -27,7 +27,7 @@ function Picture({ name, alt, className = '', eager = false }: { name: string; a
 }
 
 function Brand({ header = false }: { header?: boolean }) {
-  return <a className={header ? 'brand brand-header' : 'brand'} href="#top" aria-label="Dema Language Solutions, home">{header ? <><span className="brand-mark"><img src="/assets/logo.png" alt="Dema" width="274" height="285" /></span><span className="brand-wordmark">Language<br />Solutions</span></> : <><img src="/assets/logo.png" alt="Dema" width="274" height="285" /><span>Language<br />Solutions</span></>}</a>
+  return <a className={header ? 'brand brand-header' : 'brand'} href="#top" aria-label="Dema Language Solutions, home">{header ? <><span className="brand-mark"><img src="/assets/logo.png" alt="Dema" width="400" height="321" /></span><span className="brand-wordmark">Language<br />Solutions</span></> : <><img src="/assets/logo.png" alt="Dema" width="400" height="321" /><span>Language<br />Solutions</span></>}</a>
 }
 
 function Header() {
