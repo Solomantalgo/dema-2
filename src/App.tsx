@@ -79,8 +79,8 @@ function Approach() {
 }
 
 function Team() {
-  const members = [{ name: 'Dr. Kawalya Deo', image: 'kawalya', alt: 'Portrait of Dr. Kawalya Deo' }, { name: 'Dr. Medadi Ssentanda', image: 'medadi', alt: 'Portrait of Dr. Medadi Ssentanda' }, { name: 'Ms. Winnie Nakatuddde', image: 'winnie', alt: 'Portrait of Ms. Winnie Nakatuddde', role: 'Administrative Assistant' }]
-  return <section id="team" className="section team-section"><div className="container"><div className="team-heading"><SectionIntro eyebrow="Our team" title="People who know the power of language" copy="Meet the people behind Dema Language Solutions." /></div><div className="team-grid">{members.map(member => <article className="team-card" key={member.name}><div className="portrait"><Picture name={member.image} alt={member.alt} /></div><div className="team-card-body"><h3>{member.name}</h3>{member.role && <p>{member.role}</p>}</div></article>)}</div></div></section>
+  const members = [{ name: 'Dr. Kawalya Deo', image: 'kawalya', alt: 'Portrait of Dr. Kawalya Deo' }, { name: 'Dr. Medadi Ssentanda', image: 'medadi', alt: 'Portrait of Dr. Medadi Ssentanda' }]
+  return <section id="team" className="section team-section"><div className="container"><div className="team-heading"><SectionIntro eyebrow="Our team" title="People who know the power of language" copy="Meet the people behind Dema Language Solutions." /></div><div className="team-grid">{members.map(member => <article className="team-card" key={member.name}><div className="portrait"><Picture name={member.image} alt={member.alt} /></div><div className="team-card-body"><h3>{member.name}</h3></div></article>)}</div></div></section>
 }
 
 type Client = { name: string; logo?: string; sector?: string }

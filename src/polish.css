@@ -228,3 +228,5 @@
   .directory-filters button { font-size: .68rem; }
   .approach-layout .step { grid-template-columns: 38px 37px minmax(0,1fr); gap: 10px; padding-right: 12px; }
 }
+
+@media (min-width: 781px) { .team-grid { grid-template-columns: repeat(2, minmax(0, 360px)); justify-content: center; } }
