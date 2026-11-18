@@ -22,22 +22,22 @@ describe('homepage interactions', () => {
   it('uses real in-page targets and contact links', () => {
     const { container } = render(<App />)
     const anchors = [...container.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')]
-    for (const anchor of anchors) {
-      expect(container.querySelector(anchor.getAttribute('href')!)).not.toBeNull()
-    }
+    for (const anchor of anchors) expect(container.querySelector(anchor.getAttribute('href')!)).not.toBeNull()
     expect(container.querySelector('a[href="tel:+256702442470"]')).not.toBeNull()
     expect(container.querySelector('a[href^="mailto:info@demalanguages.com?subject="]')).not.toBeNull()
     expect(container.querySelectorAll('h1')).toHaveLength(1)
   })
 
+  it('renders all six named clients with logo images', () => {
+    render(<App />)
+    for (const name of ['AFAAS', 'Penal Reform International', 'Marie Stopes Uganda', 'Justice Centres Uganda', 'Uganda Law Society', 'FHI 360']) {
+      expect(screen.getByRole('img', { name: `${name} logo` })).toBeTruthy()
+    }
+  })
+
   it('changes the service result for all four choices', () => {
     render(<App />)
-    const cases = [
-      ['Document', 'Translation for documents'],
-      ['Live Event', 'Interpretation for live conversations'],
-      ['Recording', 'Transcription for recordings'],
-      ['Website', 'Localization for digital content'],
-    ]
+    const cases = [['Document', 'Translation for documents'], ['Live Event', 'Interpretation for live conversations'], ['Recording', 'Transcription for recordings'], ['Website', 'Localization for digital content']]
     for (const [choice, result] of cases) {
       const button = screen.getByRole('button', { name: choice })
       fireEvent.click(button)
