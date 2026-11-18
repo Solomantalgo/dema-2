@@ -1,0 +1,37 @@
+/* Open header lockup from the editorial directory direction. Footer Brand is unchanged. */
+.site-header { border-bottom: 0; box-shadow: none; background: rgba(255, 249, 245, .98); transition: box-shadow .2s ease; }
+.site-header.is-scrolled { box-shadow: 0 5px 18px rgba(45, 12, 86, .09); }
+.site-header .brand-header { display: inline-flex; align-items: center; flex: none; gap: 0; width: 258px; height: 70px; border: 0; border-radius: 0; background: transparent; box-shadow: none; overflow: visible; white-space: nowrap; }
+.site-header .brand-header:hover { box-shadow: none; }
+.site-header .brand-header:focus-visible { outline: 3px solid #ec6c5b; outline-offset: 3px; border-radius: 12px; }
+.site-header .brand-mark { display: grid; place-items: center; flex: none; width: 87px; height: 100%; min-width: 0; border: 0; background: transparent; }
+.site-header .brand-mark img { display: block; width: 78px; height: 67px; max-width: none; object-fit: contain; }
+.site-header .brand-wordmark { display: block; flex: 1; min-width: 0; height: 64px; padding: 10px 14px; border-radius: 0 15px 15px 0; background: var(--brand-violet); color: #fff; font-family: Manrope, 'DM Sans', sans-serif; font-size: 1.31rem; font-weight: 800; line-height: 1.04; letter-spacing: -.045em; }
+.site-header .brand-wordmark::after { content: none; }
+@media (max-width: 1100px) {
+  .site-header .brand-header { width: 244px; height: 68px; }
+  .site-header .brand-mark { width: 82px; }
+  .site-header .brand-mark img { width: 73px; height: 65px; }
+  .site-header .brand-wordmark { height: 62px; padding: 10px 12px; font-size: 1.24rem; }
+}
+@media (max-width: 780px) {
+  .site-header .brand-header { width: 198px; height: 59px; }
+  .site-header .brand-mark { width: 72px; }
+  .site-header .brand-mark img { width: 65px; height: 57px; }
+  .site-header .brand-wordmark { height: 53px; padding: 10px; border-radius: 0 12px 12px 0; font-size: 1rem; }
+}
+@media (max-width: 360px) {
+  .site-header .brand-header { width: 181px; height: 56px; }
+  .site-header .brand-mark { width: 67px; }
+  .site-header .brand-mark img { width: 60px; height: 54px; }
+  .site-header .brand-wordmark { height: 50px; padding: 10px 8px; font-size: .91rem; }
+}
+@media (max-width: 300px) {
+  .site-header .brand-header { width: 169px; height: 54px; }
+  .site-header .brand-mark { width: 62px; }
+  .site-header .brand-mark img { width: 56px; height: 52px; }
+  .site-header .brand-wordmark { height: 48px; padding: 9px 7px; font-size: .86rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header { transition: none; }
+}

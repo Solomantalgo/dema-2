@@ -13,8 +13,9 @@ import './polish.css'
 import './conversation-lens.css'
 import './services-photo-led.css'
 import './finder-decision-path.css'
-import './header-contrast-tab.css'
+import './header-open-lockup.css'
 import './language-atlas.css'
+import './directory-editorial.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode><App /></React.StrictMode>,
