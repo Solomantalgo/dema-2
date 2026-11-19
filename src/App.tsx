@@ -27,7 +27,7 @@ function Picture({ name, alt, className = '', eager = false }: { name: string; a
 }
 
 function Brand({ header = false }: { header?: boolean }) {
-  return <a className={header ? 'brand brand-header' : 'brand'} href="#top" aria-label="Dema Language Solutions, home">{header ? <><span className="brand-mark"><img src="/assets/logo.png" alt="Dema" width="400" height="321" /></span><span className="brand-wordmark">Language<br />Solutions</span></> : <><img src="/assets/logo.png" alt="Dema" width="400" height="321" /><span>Language<br />Solutions</span></>}</a>
+  return <a className={header ? 'brand brand-header brand-full' : 'brand brand-full'} href="#top" aria-label="Dema Language Solutions, home"><img src="/assets/logo.png" alt="Dema Language Solutions" width="439" height="301" /></a>
 }
 
 function Header() {
@@ -44,7 +44,7 @@ function Header() {
     onScroll()
     return () => { window.removeEventListener('keydown', close); window.removeEventListener('scroll', onScroll); window.removeEventListener('hashchange', onHash) }
   }, [])
-  const nav = [['Home', '#top'], ['Services', '#services'], ['Languages', '#languages'], ['About', '#team'], ['Contact', '#contact']]
+  const nav = [['Home', '#top'], ['Services', '#services'], ['Languages', '#languages'], ['About', '#team'], ['Events', '#events'], ['Contact', '#contact']]
   return <header className={scrolled ? 'site-header is-scrolled' : 'site-header'}><div className="container header-inner"><Brand header /><button className="menu-toggle" type="button" aria-expanded={open} aria-controls="main-nav" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button><nav id="main-nav" className={open ? 'nav is-open' : 'nav'} aria-label="Main navigation"><div className="nav-track">{nav.map(([label, href]) => <a key={href} className={active === href ? 'is-active' : undefined} aria-current={active === href ? 'page' : undefined} href={href} onClick={() => setOpen(false)}>{label}</a>)}</div><a className="nav-quote" href="#contact" onClick={() => setOpen(false)}>Request a Quote <ArrowRight size={16} /></a></nav></div></header>
 }
 
@@ -79,7 +79,7 @@ function Approach() {
 }
 
 function Team() {
-  const members = [{ name: 'Dr. Kawalya Deo', image: 'kawalya', alt: 'Portrait of Dr. Kawalya Deo' }, { name: 'Dr. Medadi Ssentanda', image: 'medadi', alt: 'Portrait of Dr. Medadi Ssentanda' }]
+  const members = [{ name: 'Dr. Deo Kawalya', image: 'kawalya', alt: 'Portrait of Dr. Deo Kawalya' }, { name: 'Dr. Medadi Ssentanda', image: 'medadi', alt: 'Portrait of Dr. Medadi Ssentanda' }]
   return <section id="team" className="section team-section"><div className="container"><div className="team-heading"><SectionIntro eyebrow="Our team" title="People who know the power of language" copy="Meet the people behind Dema Language Solutions." /></div><div className="team-grid">{members.map(member => <article className="team-card" key={member.name}><div className="portrait"><Picture name={member.image} alt={member.alt} /></div><div className="team-card-body"><h3>{member.name}</h3></div></article>)}</div></div></section>
 }
 
@@ -94,6 +94,15 @@ const clients: Client[] = [
   { name: 'FHI 360', logo: rawLogo('fhi360-logo.svg'), sector: 'Public health' },
 ]
 
+function Events() {
+  const events = [
+    { day: '12', month: 'Dec', year: '2026', type: 'Upcoming PhD defence', title: 'Language use in multilingual primary classrooms in Uganda', person: 'PhD candidate supervised by Dr. Medadi Ssentanda', place: 'Makerere University, Kampala', upcoming: true },
+    { day: '28', month: 'Jan', year: '2027', type: 'Upcoming MA defence', title: 'Translating health messages into Luganda for rural communities', person: 'MA candidate supervised by Dr. Deo Kawalya', place: 'Makerere University, Kampala', upcoming: true },
+    { day: '06', month: 'Oct', year: '2026', type: 'Completed defence', title: 'Terminology development in Ugandan local languages', person: 'MA graduate supervised by Dr. Deo Kawalya', place: 'Makerere University, Kampala', upcoming: false },
+  ]
+  return <section id="events" className="section events-section"><div className="container"><SectionIntro eyebrow="Events" title="What we're working on" copy="Upcoming and recent student defences we supervise in the area of languages, plus other news from our work." center /><div className="events-list">{events.map(event => <article className={event.upcoming ? 'event-card' : 'event-card is-past'} key={event.title}><div className="event-date"><strong>{event.day}</strong><span>{event.month} {event.year}</span></div><div className="event-body"><span className="event-type">{event.type}</span><h3>{event.title}</h3><p>{event.person}</p><p className="event-place"><MapPin size={15} /> {event.place}</p></div></article>)}</div><p className="clients-note">Sample entries for the demo. Real events will be added here.</p></div></section>
+}
+
 function Clients() {
   return <section id="clients" className="section clients-section"><style>{`.client-logo-card{min-width:0;width:100%;min-height:176px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;padding:18px 20px 14px;border:1px solid #eadce8;border-radius:23px;background:#fff;box-shadow:0 8px 24px rgba(45,12,86,.055);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}.client-logo-card:hover,.client-logo-card:focus-visible{transform:translateY(-3px);border-color:#d9bfdd;box-shadow:0 14px 30px rgba(45,12,86,.10)}.client-logo-wrap{width:100%;max-width:100%;min-width:0;height:105px;display:flex;align-items:center;justify-content:center;overflow:hidden}.client-logo{display:block;width:100%;max-width:100%;min-width:0;height:105px;object-fit:contain;object-position:center;filter:grayscale(.88) saturate(.7);opacity:.72;transition:filter .22s ease,opacity .22s ease,transform .22s ease}.client-logo-card:hover .client-logo,.client-logo-card:focus-visible .client-logo{filter:grayscale(0) saturate(1);opacity:1;transform:scale(1.025)}.client-sector{margin:0;color:#625867;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;text-align:center;line-height:1.35}@media(max-width:780px){.clients-section,.clients-section .container{width:100%;min-width:0}.clients-grid{width:100%;min-width:0;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.client-logo-card{padding-inline:clamp(10px,4vw,20px)}}@media(max-width:550px){.client-logo-card{min-height:158px;padding:14px 10px 12px}.client-logo-wrap,.client-logo{height:92px}.client-sector{font-size:.66rem}}@media(hover:none),(pointer:coarse){.client-logo{filter:none!important;opacity:1!important}}@media(prefers-reduced-motion:reduce){.client-logo-card,.client-logo{transition:none!important}.client-logo-card:hover,.client-logo-card:focus-visible{transform:none}}`}</style><div className="container"><SectionIntro eyebrow="Our clients" title="Trusted for meaningful work" copy="Organisations that have turned to Dema for language support." center /><div className="clients-grid">{clients.map(client => <article className="client-name client-logo-card" key={client.name} tabIndex={0}><div className="client-logo-wrap">{client.logo ? <img className="client-logo" src={client.logo} alt={`${client.name} logo`} width="320" height="105" loading="lazy" /> : <span>{client.name}</span>}</div>{client.sector && <p className="client-sector">{client.sector}</p>}</article>)}</div><p className="clients-note">Selected clients listed by Dema.</p></div></section>
 }
@@ -103,10 +112,10 @@ function Contact() {
 }
 
 function Footer() {
-  return <footer className="footer"><div className="container footer-grid"><div className="footer-about"><Brand /><p>Translation and interpretation that help communities and organisations communicate clearly in Uganda.</p></div><div><h3>Explore</h3><a href="#services">Services</a><a href="#find-service">Find a service</a><a href="#languages">Languages</a><a href="#approach">Our approach</a></div><div><h3>About</h3><a href="#team">Our team</a><a href="#clients">Our clients</a><a href="#contact">Contact</a></div><div><h3>Get in touch</h3><a href="mailto:info@demalanguages.com"><Mail size={16} /> info@demalanguages.com</a><a href="tel:+256702442470"><Phone size={16} /> +256 702 442 470</a><span className="footer-location"><MapPin size={16} /> Kampala, Uganda</span></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} Dema Language Solutions. All rights reserved.</span><a href="#top">Back to top <ChevronDown size={14} /></a></div></footer>
+  return <footer className="footer"><div className="container footer-grid"><div className="footer-about"><Brand /><p>Translation and interpretation that help communities and organisations communicate clearly in Uganda.</p></div><div><h3>Explore</h3><a href="#services">Services</a><a href="#find-service">Find a service</a><a href="#languages">Languages</a><a href="#approach">Our approach</a></div><div><h3>About</h3><a href="#team">Our team</a><a href="#events">Events</a><a href="#clients">Our clients</a><a href="#contact">Contact</a></div><div><h3>Get in touch</h3><a href="mailto:info@demalanguages.com"><Mail size={16} /> info@demalanguages.com</a><a href="tel:+256702442470"><Phone size={16} /> +256 702 442 470</a><span className="footer-location"><MapPin size={16} /> Kampala, Uganda</span></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} Dema Language Solutions. All rights reserved.</span><a href="#top">Back to top <ChevronDown size={14} /></a></div></footer>
 }
 
 export default function App() {
   const [choice, setChoice] = useState<Choice>('Document')
-  return <><a className="skip-link" href="#main">Skip to content</a><Header /><main id="main"><Hero onPick={setChoice} /><Services onPick={setChoice} /><ServiceFinder choice={choice} setChoice={setChoice} /><LanguagesSection /><Approach /><Team /><Clients /><Contact /></main><Footer /></>
+  return <><a className="skip-link" href="#main">Skip to content</a><Header /><main id="main"><Hero onPick={setChoice} /><Services onPick={setChoice} /><ServiceFinder choice={choice} setChoice={setChoice} /><LanguagesSection /><Approach /><Team /><Events /><Clients /><Contact /></main><Footer /></>
 }
