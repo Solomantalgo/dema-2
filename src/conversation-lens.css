@@ -215,3 +215,12 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-copy, .hero-photo, .hero-inset, .hero-rings, .hero-peach, .hero-service-labels a { animation: none !important; opacity: 1; transform: none; scale: 1; }
 }
+
+/* Hero service labels follow the curve of the photo circle (desktop) */
+@media (min-width: 781px) {
+  .hero-service-labels { top: 50%; transform: translateY(-50%); gap: 16px; }
+  .hero-service-labels a:nth-child(1) { margin-right: 52px; }
+  .hero-service-labels a:nth-child(2) { margin-right: 6px; }
+  .hero-service-labels a:nth-child(3) { margin-right: 6px; }
+  .hero-service-labels a:nth-child(4) { margin-right: 52px; animation-delay: .66s; }
+}

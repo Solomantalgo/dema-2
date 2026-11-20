@@ -17,6 +17,7 @@ import './header-open-lockup.css'
 import './language-atlas.css'
 import './directory-editorial.css'
 import './client-cards-mobile.css'
+import './events.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode><App /></React.StrictMode>,

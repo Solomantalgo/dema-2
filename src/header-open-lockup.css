@@ -35,3 +35,18 @@
 @media (prefers-reduced-motion: reduce) {
   .site-header { transition: none; }
 }
+
+/* New Dema logo (wider than tall): size by height, keep proportions. */
+.site-header .brand-mark { width: auto; padding-right: 6px; }
+.site-header .brand-mark img, .header-inner .brand img { width: auto !important; height: 60px !important; max-width: 92px; object-fit: contain; }
+.brand img { width: auto; height: 64px; object-fit: contain; }
+@media (max-width: 780px) { .site-header .brand-mark img, .header-inner .brand img { height: 50px !important; max-width: 70px; } }
+
+/* Logo lockup: Dema mark + violet name panel */
+.brand.brand-lockup { display: inline-flex; align-items: center; gap: 0; width: auto; height: 64px; }
+.brand-lockup .brand-mark { display: grid; place-items: center; width: 80px; height: 100%; }
+.brand-lockup .brand-mark img { width: 74px !important; height: 58px !important; object-fit: contain; mix-blend-mode: multiply; }
+.brand-lockup .brand-wordmark { display: flex; align-items: center; height: 58px; max-width: 170px; padding: 8px 14px; border-radius: 0 14px 14px 0; background: var(--brand-violet); color: #fff; font-family: Manrope, 'DM Sans', sans-serif; font-size: .9rem; font-weight: 800; line-height: 1.12; letter-spacing: .04em; text-transform: uppercase; white-space: normal; }
+.site-header .brand-header.brand-lockup { width: auto; height: 64px; }
+.footer .brand.brand-lockup { background: transparent; padding: 0; }
+@media (max-width: 780px) { .brand-lockup .brand-mark { width: 62px; } .brand-lockup .brand-mark img { width: 58px !important; height: 46px !important; } .brand-lockup .brand-wordmark { height: 48px; max-width: 140px; font-size: .74rem; padding: 6px 10px; } .site-header .brand-header.brand-lockup { height: 52px; } }
