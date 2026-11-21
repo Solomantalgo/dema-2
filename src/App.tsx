@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { ArrowRight, Check, ChevronDown, ClipboardCheck, FilePenLine, Lightbulb, Mail, MapPin, Menu, Phone, X } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { ArrowRight, Check, ChevronDown, ClipboardCheck, Facebook, FilePenLine, Lightbulb, Linkedin, Mail, MapPin, Menu, MessageCircle, Phone, Twitter, X } from 'lucide-react'
 import Events from './Events'
 import LanguageDirectory from './LanguageDirectory'
 
@@ -105,10 +105,61 @@ function Contact() {
 }
 
 function Footer() {
-  return <footer className="footer"><div className="container footer-grid"><div className="footer-about"><Brand /><p>Translation and interpretation that help communities and organisations communicate clearly in Uganda.</p></div><div><h3>Explore</h3><a href="#services">Services</a><a href="#find-service">Find a service</a><a href="#languages">Languages</a><a href="#approach">Our approach</a></div><div><h3>About</h3><a href="#team">Our team</a><a href="#events">Events</a><a href="#clients">Our clients</a><a href="#contact">Contact</a></div><div><h3>Get in touch</h3><a href="mailto:info@demalanguages.com"><Mail size={16} /> info@demalanguages.com</a><a href="tel:+256782374210"><Phone size={16} /> 0782 374 210</a><a href="tel:+256702442470"><Phone size={16} /> 0702 442 470</a><span className="footer-location"><MapPin size={16} /> Sir Apollo Kaggwa Road, opposite Stabex</span></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} Dema Language Solutions. All rights reserved.</span><a href="#top">Back to top <ChevronDown size={14} /></a></div></footer>
+  return <footer className="footer"><div className="container footer-grid"><div className="footer-about"><Brand /><p>Translation and interpretation that help communities and organisations communicate clearly in Uganda.</p><nav className="footer-social" aria-label="Dema on social media"><a href="https://www.facebook.com/profile.php?id=100067927387260" target="_blank" rel="noopener noreferrer" aria-label="Dema on Facebook"><Facebook size={18} aria-hidden="true" /></a><a href="https://x.com/dema_solutions" target="_blank" rel="noopener noreferrer" aria-label="Dema on X (Twitter)"><Twitter size={18} aria-hidden="true" /></a><a href="https://www.linkedin.com/in/dema-langauge-solutions-22447427b" target="_blank" rel="noopener noreferrer" aria-label="Dema on LinkedIn"><Linkedin size={18} aria-hidden="true" /></a><a href="mailto:info@demalanguages.com" aria-label="Email Dema"><Mail size={18} aria-hidden="true" /></a></nav></div><div><h3>Explore</h3><a href="#services">Services</a><a href="#find-service">Find a service</a><a href="#languages">Languages</a><a href="#approach">Our approach</a></div><div><h3>About</h3><a href="#team">Our team</a><a href="#events">Events</a><a href="#clients">Our clients</a><a href="#contact">Contact</a></div><div><h3>Get in touch</h3><a href="mailto:info@demalanguages.com"><Mail size={16} /> info@demalanguages.com</a><a href="tel:+256782374210"><Phone size={16} /> 0782 374 210</a><a href="tel:+256702442470"><Phone size={16} /> 0702 442 470</a><span className="footer-location"><MapPin size={16} /> Sir Apollo Kaggwa Road, opposite Stabex</span></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} Dema Language Solutions. All rights reserved.</span><a href="#top">Back to top <ChevronDown size={14} /></a></div></footer>
+}
+
+function FloatingContact() {
+  const [open, setOpen] = useState(false)
+  const [nearFooter, setNearFooter] = useState(false)
+  const rootRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const targets = [document.querySelector('#contact'), document.querySelector('.footer')].filter((target): target is Element => Boolean(target))
+    if (!targets.length || !('IntersectionObserver' in window)) return
+    const visible = new Set<Element>()
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => entry.isIntersecting ? visible.add(entry.target) : visible.delete(entry.target))
+      setNearFooter(visible.size > 0)
+      if (visible.size > 0) setOpen(false)
+    }, { threshold: 0.04 })
+    targets.forEach(target => observer.observe(target))
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!open) return
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setOpen(false)
+        rootRef.current?.querySelector<HTMLButtonElement>('.contact-fab-toggle')?.focus()
+      }
+    }
+    const onPointerDown = (event: PointerEvent) => {
+      if (!rootRef.current?.contains(event.target as Node)) setOpen(false)
+    }
+    document.addEventListener('keydown', onKeyDown)
+    document.addEventListener('pointerdown', onPointerDown)
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      document.removeEventListener('pointerdown', onPointerDown)
+    }
+  }, [open])
+
+  if (nearFooter) return null
+  return <div className={open ? 'contact-fab is-open' : 'contact-fab'} ref={rootRef}>
+    <button type="button" className="contact-fab-toggle" aria-label={open ? 'Close contact options' : 'Open contact options'} aria-expanded={open} aria-controls="contact-fab-panel" onClick={() => setOpen(value => !value)}><MessageCircle size={25} aria-hidden="true" /></button>
+    <section id="contact-fab-panel" className="contact-fab-panel" aria-labelledby="contact-fab-title" hidden={!open}>
+      <div className="contact-fab-panel-heading"><h2 id="contact-fab-title">How can we help?</h2><button type="button" className="contact-fab-close" onClick={() => { setOpen(false); rootRef.current?.querySelector<HTMLButtonElement>('.contact-fab-toggle')?.focus() }} aria-label="Close contact options"><X size={18} /></button></div>
+      <div className="contact-fab-actions">
+        <a href="https://wa.me/256702442470" target="_blank" rel="noopener noreferrer"><span className="contact-fab-icon whatsapp-icon"><MessageCircle size={21} aria-hidden="true" /></span><span><strong>WhatsApp</strong><small>Chat with us on WhatsApp</small></span><ArrowRight size={17} aria-hidden="true" /></a>
+        <a href="mailto:info@demalanguages.com"><span className="contact-fab-icon"><Mail size={20} aria-hidden="true" /></span><span><strong>Email</strong><small>Send us an email</small></span><ArrowRight size={17} aria-hidden="true" /></a>
+        <a href="tel:+256702442470"><span className="contact-fab-icon"><Phone size={20} aria-hidden="true" /></span><span><strong>Call</strong><small>Speak with our team</small></span><ArrowRight size={17} aria-hidden="true" /></a>
+      </div>
+    </section>
+  </div>
 }
 
 export default function App() {
   const [choice, setChoice] = useState<Choice>('Document')
-  return <><a className="skip-link" href="#main">Skip to content</a><Header /><main id="main"><Hero onPick={setChoice} /><Services onPick={setChoice} /><ServiceFinder choice={choice} setChoice={setChoice} /><LanguagesSection /><Approach /><Team /><Events /><Clients /><Contact /></main><Footer /></>
+  return <><a className="skip-link" href="#main">Skip to content</a><Header /><main id="main"><Hero onPick={setChoice} /><Services onPick={setChoice} /><ServiceFinder choice={choice} setChoice={setChoice} /><LanguagesSection /><Approach /><Team /><Events /><Clients /><Contact /></main><Footer /><FloatingContact /></>
 }

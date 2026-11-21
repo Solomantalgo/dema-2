@@ -139,15 +139,15 @@ Build in this order. The quoted copy is the working content; adjust minor wordin
 ### 07 — Clients (`#clients`)
 
 - Heading **Trusted for meaningful work** or a simpler **Our clients** if the former does not fit the composition.
-- Use a restrained typographic grid of selected names currently listed on Dema's public site: AFAAS, Penal Reform International, Marie Stopes Uganda, Justice Centres Uganda, Uganda Law Society, FHI 360. These are text labels, not reproduced official logos.
-- Confirm client list and logo permissions with Dema before a public production launch. Do not add testimonials or performance numbers.
+- Use the client logo image assets already available in the project for the trust strip. Inspect the existing image/public assets and map each logo to the verified client names: AFAAS, Penal Reform International, Marie Stopes Uganda, Justice Centres Uganda, Uganda Law Society, and FHI 360. Do not redraw logos, invent marks, or fetch replacement logos. If an approved logo asset is not present for one of these clients, show that client's name as text instead.
+- Present the available marks in a restrained, slow horizontal marquee on desktop, with enough spacing and consistent visual height so marks feel balanced. Pause movement on hover and keyboard focus. Respect `prefers-reduced-motion`; in reduced-motion mode and narrow mobile layouts use a static wrapping row. Make logos accessible with meaningful alt text (or accessible names if implemented as decorative visuals beside visible names). Do not add testimonials or performance numbers. Confirm client list and logo permissions with Dema before a public production launch.
 
 ### 08 — Contact CTA and footer (`#contact`)
 
 - Heading **Let’s bring your message to more people.**
 - Short copy invites a project enquiry.
-- Quote action uses `mailto:info@demalanguages.com` with a useful subject. Provide a direct **Email Dema** link and `tel:+256702442470`. Show Kampala, Uganda rather than an unverified full street address.
-- Footer repeats useful in-page anchors and the real logo. Use the current year dynamically. No fake social links, privacy page, or terms page.
+- Quote action uses `mailto:info@demalanguages.com` with a useful subject. Provide a direct **Email Dema** link and phone actions for `+256 782 374 210` and `+256 702 442 470`, as shown on the supplied Dema contact poster. Show Kampala, Uganda rather than an unverified full street address.
+- Footer repeats useful in-page anchors and the real logo. Use the current year dynamically. Add Facebook, X/Twitter, LinkedIn, and email links using the exact destinations in section 18; do not invent additional profiles.
 
 ## 7. Responsive and interaction requirements
 
@@ -165,6 +165,7 @@ Build in this order. The quoted copy is the working content; adjust minor wordin
 - The first viewport should communicate what Dema does within seconds. Every later section adds a different reason to understand or trust Dema, then leads to contact.
 - Run the project's build and relevant checks. Capture full-page QA screenshots at **1440, 1024, 768, 390, and 320 px** after the final code change, save them in `qa/`, and inspect them against the desktop/mobile reference image for every section. Fix visible differences and recapture until the final screenshots reflect the delivered code. At every width, verify `document.documentElement.scrollWidth <= window.innerWidth` and inspect the screenshot for any clipped controls or text. Check all anchors, menu states, service selector states, district/language search and filters, mailto, and tel links.
 - **Include clickable links to the final QA screenshots in every implementation handoff**, along with what changed, how it was verified, any deliberate differences from the references, and any content/asset approvals still needed for a production launch. Do not report visual QA complete without providing the screenshots.
+- The contact shortcut is a floating action button (FAB) with an accessible label and an expandable contact panel. Provide working WhatsApp, email, and telephone actions; use the verified Dema primary phone `+256 702 442 470` for WhatsApp and `tel:+256702442470` for calls. Keep WhatsApp clearly labeled and open it in a new tab with safe `rel` attributes. Include the verified Facebook, Twitter/X, and LinkedIn links in the footer; they may also appear in the expanded panel if the panel stays compact. Never render placeholder social destinations.
 
 ## 9. Visual correction priorities from the 2026-11-17 QA review
 
@@ -289,3 +290,19 @@ The user selected `plan/directory-iteration/options/02-editorial-cards.png` for 
 - Scope changes to the directory, header brand, and directly necessary shared layout fixes. Preserve the accepted hero, photo-led Services, decision-path finder, Atlas diptych and Kampala credit, other sections, all section anchors, and existing data behavior.
 - Run the build and `node qa/check.mjs`; retain its viewport overflow and directory interaction checks. Verify search, filters, clear, Show more, empty state, menu open/close, scroll header, and keyboard focus. Check `document.documentElement.scrollWidth <= window.innerWidth` at 1440, 1024, 768, 390, 320, and 280 px without hiding page overflow.
 - After the final code change, capture and inspect directory screenshots, header close-ups, and full-page QA screenshots at those widths. Fix visible clipping, weak contrast, misalignment, or overflow, then recapture. Include clickable screenshot paths and any deliberate differences from the board in the implementation handoff. Do not deploy.
+
+## 18. Contact links and floating contact button
+
+The user supplied and approved the social profile destinations and WhatsApp action for this iteration. Preserve these exact URLs unless the user supplies replacements:
+
+- Facebook: `https://www.facebook.com/profile.php?id=100067927387260`
+- X/Twitter: `https://x.com/dema_solutions`
+- LinkedIn: `https://www.linkedin.com/in/dema-langauge-solutions-22447427b`
+- Email: `mailto:info@demalanguages.com`
+- WhatsApp: `https://wa.me/256702442470`
+- Call: `tel:+256702442470`
+
+- Footer: use compact, recognizable social and email icons with accessible names and visible keyboard focus. Open external profiles in a new tab with `rel="noopener noreferrer"`. Keep them secondary to the main contact details and preserve the footer's responsive layout.
+- Floating action button: use the selected reference `plan/contact-access-iteration/options/01-round-button-card.png` as a visual guide. Build a discreet circular red message button near the lower right. Activation opens a compact white card titled **How can we help?** with **WhatsApp**, **Email**, and **Call** actions. Keep the panel within the viewport, avoid obscuring the contact CTA/footer, and support 280–390 px mobile widths.
+- The FAB must be a real button with `aria-expanded`, `aria-controls`, a descriptive accessible name, clear focus, and keyboard operation. Allow Escape to close the panel, close it on outside click if practical, avoid trapping focus, and respect reduced motion. Do not simulate sending or use dead controls.
+- Verify all destinations, open/close and keyboard behavior, mobile menu interaction, viewport overflow, and overlap with sticky navigation/footer at 1440, 1024, 768, 390, 320, and 280 px. Capture open/closed FAB screenshots on desktop and mobile plus updated full-page screenshots. Do not deploy.

@@ -207,9 +207,10 @@
 }
 @media (max-width: 360px) {
   .hero h1 { font-size: 2.78rem; }
-  .hero-visual { height: calc((100vw - 36px) * 1.11 + 53px); }
-  .hero-service-labels { gap: 4px; }
-  .hero-service-labels a { padding-inline: 7px; font-size: .72rem; }
+  .hero-visual { height: calc((100vw - 36px) * 1.11 + 96px); }
+  .hero-inset { bottom: 29%; }
+  .hero-service-labels { left: 8px; right: 8px; bottom: 3%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); justify-items: center; gap: 5px; }
+  .hero-service-labels a { min-height: 34px; padding-inline: 7px; font-size: .72rem; white-space: nowrap; }
   .hero-proof div { gap: 7px; font-size: .75rem; }
 }
 @media (prefers-reduced-motion: reduce) {
