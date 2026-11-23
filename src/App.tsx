@@ -75,7 +75,7 @@ function LanguagesSection() {
 }
 
 function Approach() {
-  const steps = [{ number: '01', title: 'Share your brief', copy: 'Tell us what you need, who it is for and the languages involved.', icon: FilePenLine }, { number: '02', title: 'Agree the approach', copy: 'We’ll discuss the service and scope that fit your request.', icon: Lightbulb }, { number: '03', title: 'Receive your work', copy: 'Get your completed language work in the agreed format.', icon: ClipboardCheck }]
+  const steps = [{ number: '01', title: 'Share your brief', copy: 'Tell us what you need, who it is for and the languages involved.', icon: FilePenLine }, { number: '02', title: 'Agree to the approach', copy: 'We’ll discuss the service and scope that fit your request.', icon: Lightbulb }, { number: '03', title: 'Receive your work', copy: 'Get your completed language work in the agreed format.', icon: ClipboardCheck }]
   return <section id="approach" className="section approach-section"><div className="container approach-layout"><SectionIntro eyebrow="How it works" title="A clear path from request to result" copy="Tell us what you need. We'll help shape the right language solution." /><div className="steps">{steps.map(({ number, title, copy, icon: Icon }) => <div className="step" key={number}><span className="step-number">{number}</span><Icon className="step-icon" size={35} strokeWidth={1.7} /><div><h3>{title}</h3><p>{copy}</p></div></div>)}</div><div className="approach-photo"><Picture name="document" alt="Illustrative scene of people reviewing a document together" /><span className="photo-label">A thoughtful process</span></div></div></section>
 }
 
